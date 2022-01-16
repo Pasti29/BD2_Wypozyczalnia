@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Klient
 {
-    public partial class Form1 : Form
+    public partial class KlientForm : Form
     {
-        public Form1()
+        public KlientForm()
         {
             InitializeComponent();
         }

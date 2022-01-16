@@ -1,6 +1,6 @@
 ﻿namespace Klient
 {
-    partial class Form1
+    partial class KlientForm
     {
         /// <summary>
         ///  Required designer variable.
