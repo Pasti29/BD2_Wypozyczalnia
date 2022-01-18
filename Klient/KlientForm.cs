@@ -12,7 +12,7 @@ namespace Klient
 {
     public partial class KlientForm : Form
     {
-        private Button currentButton;
+        private Button? currentButton;
 
         public KlientForm()
         {
@@ -26,7 +26,7 @@ namespace Klient
                 if (currentButton != (Button) btnSender)
                 {
                     DisableButton();
-                    currentButton = (Button) btnSender;
+                    currentButton = (Button)btnSender;
                     currentButton.BackColor = Color.FromArgb(170, 164, 255);
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -47,19 +47,24 @@ namespace Klient
             }
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void ButtonLogin_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
         }
 
-        private void btnKatalog_Click(object sender, EventArgs e)
+        private void ButtonCatalog_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void ButtonLogout_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
         }
+
+        //private void KlientForm_Load(object sender, EventArgs e)
+        //{
+            
+        //}
     }
 }
