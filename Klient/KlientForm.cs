@@ -62,6 +62,15 @@ namespace Klient
             LabelTitle.Text = childForm.Text;
         }
 
+        public void ReturnToStart()
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+                DisableButton();
+            }
+        }
+
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
 

@@ -69,6 +69,7 @@
             this.ButtonLogin.TabIndex = 4;
             this.ButtonLogin.Text = "Zaloguj się";
             this.ButtonLogin.UseVisualStyleBackColor = true;
+            this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // TextBoxPassword
             // 
@@ -78,6 +79,7 @@
             this.TextBoxPassword.PasswordChar = '*';
             this.TextBoxPassword.Size = new System.Drawing.Size(269, 25);
             this.TextBoxPassword.TabIndex = 3;
+            this.TextBoxPassword.TextChanged += new System.EventHandler(this.TextBoxPassword_TextChanged);
             // 
             // LabelUser
             // 
