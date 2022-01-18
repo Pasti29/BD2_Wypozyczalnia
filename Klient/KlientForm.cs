@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Klient
 {
     public partial class KlientForm : Form
     {
+        private Form? activeForm;
         private Button? currentButton;
 
         public KlientForm()
@@ -19,14 +14,14 @@ namespace Klient
             InitializeComponent();
         }
 
-        private void ActivateButton(object btnSender)
+        private void ActivateButton(object buttonSender)
         {
-            if(btnSender != null)
+            if (buttonSender != null)
             {
-                if (currentButton != (Button) btnSender)
+                if (currentButton != (Button)buttonSender)
                 {
                     DisableButton();
-                    currentButton = (Button)btnSender;
+                    currentButton = (Button)buttonSender;
                     currentButton.BackColor = Color.FromArgb(170, 164, 255);
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -36,20 +31,41 @@ namespace Klient
 
         private void DisableButton()
         {
-            foreach (Control previousBtn in panelMenu.Controls)
+            foreach (Control previousBtn in PanelMenu.Controls)
             {
-                if(previousBtn.GetType() == typeof(Button))
+                if (previousBtn.GetType() == typeof(Button))
                 {
                     previousBtn.BackColor = Color.FromArgb(50, 52, 77);
                     previousBtn.ForeColor = Color.Gainsboro;
-                    previousBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+                    previousBtn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
                 }
             }
         }
 
+        private void OpenChildForm(Form childForm, object buttonSender)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            ActivateButton(buttonSender);
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            PanelDesktop.Controls.Add(childForm);
+            PanelDesktop.Tag = childForm;
+
+            childForm.BringToFront();
+            childForm.Show();
+            LabelTitle.Text = childForm.Text;
+        }
+
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+
+            OpenChildForm(new Forms.FormLogin(), sender);
         }
 
         private void ButtonCatalog_Click(object sender, EventArgs e)
@@ -61,10 +77,8 @@ namespace Klient
         {
             ActivateButton(sender);
         }
-
         //private void KlientForm_Load(object sender, EventArgs e)
         //{
-            
         //}
     }
 }
