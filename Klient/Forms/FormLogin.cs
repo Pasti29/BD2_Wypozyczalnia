@@ -8,10 +8,14 @@ namespace Klient.Forms
 {
     public partial class FormLogin : Form
     {
-        public FormLogin()
+
+        private readonly KlientForm klientForm;
+
+        public FormLogin(KlientForm klientForm)
         {
+            this.klientForm = klientForm;
             InitializeComponent();
-            if (KlientForm.connection != null && KlientForm.connection.State == ConnectionState.Open)
+            if (KlientForm.Connection != null && KlientForm.Connection.State == ConnectionState.Open)
             {
                 IsLogged();
             }
@@ -32,32 +36,39 @@ namespace Klient.Forms
             {
                 LabelConnectionStatus.Visible = true;
                 LabelConnectionStatus.ForeColor = Color.Red;
-                LabelConnectionStatus.Text = "Nie wpisano danych";
+                LabelConnectionStatus.Text = "Nie wpisano wszystkich danych";
             }
             else
             {
-                String user = TextBoxUser.Text;
-                String password = TextBoxPassword.Text;
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(Resource.ConnectionString);
-                builder.UserID = user;
-                builder.Password = password;
-                KlientForm.connection = new SqlConnection(builder.ConnectionString);
+                string user = TextBoxUser.Text;
+                SqlConnectionStringBuilder builder = new(Resource.ConnectionString)
+                {
+                    UserID = user,
+                    Password = TextBoxPassword.Text
+                };
+                KlientForm.Connection = new SqlConnection(builder.ConnectionString);
                 try
                 {
-                    KlientForm.connection.Open();
+                    KlientForm.Connection.Open();
                 }
-                catch (SqlException ex)
+                catch (SqlException)
                 {
                     LabelConnectionStatus.Visible = true;
                     LabelConnectionStatus.ForeColor = Color.Red;
-                    LabelConnectionStatus.Text = "Dane niepoprawne";
+                    LabelConnectionStatus.Text = "Niepoprawne dane";
                 }
-                if (KlientForm.connection.State == ConnectionState.Open)
+                if (KlientForm.Connection.State == ConnectionState.Open)
                 {
+                    KlientForm.UserLogin = TextBoxUser.Text;
                     LabelConnectionStatus.Visible = true;
                     LabelConnectionStatus.ForeColor = Color.Green;
                     LabelConnectionStatus.Text = "Zalogowano";
                     IsLogged();
+                    klientForm.ButtonLogin_Visible(false);
+                    klientForm.ButtonRegister_Visible(false);
+                    klientForm.ButtonAddOrder_Visible(true);
+                    klientForm.ButtonOrder_Visible(true);
+                    klientForm.ButtonLogout_Visible(true);
                 }
             }
         }

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.PanelMenu = new System.Windows.Forms.Panel();
+            this.ButtonAddOrder = new System.Windows.Forms.Button();
+            this.ButtonOrder = new System.Windows.Forms.Button();
+            this.ButtonCatalog = new System.Windows.Forms.Button();
             this.ButtonLogout = new System.Windows.Forms.Button();
             this.ButtonRegister = new System.Windows.Forms.Button();
             this.ButtonLogin = new System.Windows.Forms.Button();
@@ -37,7 +40,6 @@
             this.PanelTitleBar = new System.Windows.Forms.Panel();
             this.LabelTitle = new System.Windows.Forms.Label();
             this.PanelDesktop = new System.Windows.Forms.Panel();
-            this.ButtonCatalog = new System.Windows.Forms.Button();
             this.PanelMenu.SuspendLayout();
             this.PanelLogo.SuspendLayout();
             this.PanelTitleBar.SuspendLayout();
@@ -46,6 +48,8 @@
             // PanelMenu
             // 
             this.PanelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
+            this.PanelMenu.Controls.Add(this.ButtonAddOrder);
+            this.PanelMenu.Controls.Add(this.ButtonOrder);
             this.PanelMenu.Controls.Add(this.ButtonCatalog);
             this.PanelMenu.Controls.Add(this.ButtonLogout);
             this.PanelMenu.Controls.Add(this.ButtonRegister);
@@ -56,6 +60,59 @@
             this.PanelMenu.Name = "PanelMenu";
             this.PanelMenu.Size = new System.Drawing.Size(220, 681);
             this.PanelMenu.TabIndex = 1;
+            // 
+            // ButtonAddOrder
+            // 
+            this.ButtonAddOrder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ButtonAddOrder.FlatAppearance.BorderSize = 0;
+            this.ButtonAddOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonAddOrder.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ButtonAddOrder.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ButtonAddOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ButtonAddOrder.Location = new System.Drawing.Point(0, 400);
+            this.ButtonAddOrder.Name = "ButtonAddOrder";
+            this.ButtonAddOrder.Size = new System.Drawing.Size(220, 80);
+            this.ButtonAddOrder.TabIndex = 5;
+            this.ButtonAddOrder.Text = "Utwórz nowe wypożyczenie";
+            this.ButtonAddOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ButtonAddOrder.UseVisualStyleBackColor = true;
+            this.ButtonAddOrder.Visible = false;
+            this.ButtonAddOrder.Click += new System.EventHandler(this.ButtonAddOrder_Click);
+            // 
+            // ButtonOrder
+            // 
+            this.ButtonOrder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ButtonOrder.FlatAppearance.BorderSize = 0;
+            this.ButtonOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonOrder.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ButtonOrder.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ButtonOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ButtonOrder.Location = new System.Drawing.Point(0, 320);
+            this.ButtonOrder.Name = "ButtonOrder";
+            this.ButtonOrder.Size = new System.Drawing.Size(220, 80);
+            this.ButtonOrder.TabIndex = 4;
+            this.ButtonOrder.Text = "Informacje o aktualnym wypożyczeniu";
+            this.ButtonOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ButtonOrder.UseVisualStyleBackColor = true;
+            this.ButtonOrder.Visible = false;
+            this.ButtonOrder.Click += new System.EventHandler(this.ButtonOrder_Click);
+            // 
+            // ButtonCatalog
+            // 
+            this.ButtonCatalog.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ButtonCatalog.FlatAppearance.BorderSize = 0;
+            this.ButtonCatalog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonCatalog.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ButtonCatalog.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ButtonCatalog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ButtonCatalog.Location = new System.Drawing.Point(0, 240);
+            this.ButtonCatalog.Name = "ButtonCatalog";
+            this.ButtonCatalog.Size = new System.Drawing.Size(220, 80);
+            this.ButtonCatalog.TabIndex = 2;
+            this.ButtonCatalog.Text = "Wyświetl katalog";
+            this.ButtonCatalog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ButtonCatalog.UseVisualStyleBackColor = true;
+            this.ButtonCatalog.Click += new System.EventHandler(this.ButtonCatalog_Click);
             // 
             // ButtonLogout
             // 
@@ -72,6 +129,7 @@
             this.ButtonLogout.Text = "Wyloguj się";
             this.ButtonLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ButtonLogout.UseVisualStyleBackColor = true;
+            this.ButtonLogout.Visible = false;
             this.ButtonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);
             // 
             // ButtonRegister
@@ -142,14 +200,15 @@
             // LabelTitle
             // 
             this.LabelTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LabelTitle.AutoSize = true;
+            this.LabelTitle.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabelTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LabelTitle.ForeColor = System.Drawing.Color.White;
-            this.LabelTitle.Location = new System.Drawing.Point(438, 24);
+            this.LabelTitle.Location = new System.Drawing.Point(6, 24);
             this.LabelTitle.Name = "LabelTitle";
-            this.LabelTitle.Size = new System.Drawing.Size(167, 32);
+            this.LabelTitle.Size = new System.Drawing.Size(1026, 32);
             this.LabelTitle.TabIndex = 0;
             this.LabelTitle.Text = "Strona główna";
+            this.LabelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PanelDesktop
             // 
@@ -159,27 +218,11 @@
             this.PanelDesktop.Size = new System.Drawing.Size(1044, 601);
             this.PanelDesktop.TabIndex = 3;
             // 
-            // ButtonCatalog
-            // 
-            this.ButtonCatalog.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ButtonCatalog.FlatAppearance.BorderSize = 0;
-            this.ButtonCatalog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonCatalog.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ButtonCatalog.ForeColor = System.Drawing.Color.Gainsboro;
-            this.ButtonCatalog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ButtonCatalog.Location = new System.Drawing.Point(0, 240);
-            this.ButtonCatalog.Name = "ButtonCatalog";
-            this.ButtonCatalog.Size = new System.Drawing.Size(220, 80);
-            this.ButtonCatalog.TabIndex = 2;
-            this.ButtonCatalog.Text = "Wyświetl katalog";
-            this.ButtonCatalog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ButtonCatalog.UseVisualStyleBackColor = true;
-            this.ButtonCatalog.Click += new System.EventHandler(this.ButtonCatalog_Click);
-            // 
             // KlientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.PanelDesktop);
             this.Controls.Add(this.PanelTitleBar);
@@ -190,7 +233,6 @@
             this.PanelLogo.ResumeLayout(false);
             this.PanelLogo.PerformLayout();
             this.PanelTitleBar.ResumeLayout(false);
-            this.PanelTitleBar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -206,5 +248,7 @@
         private System.Windows.Forms.Label LabelLogo;
         private System.Windows.Forms.Panel PanelDesktop;
         private System.Windows.Forms.Button ButtonCatalog;
+        private System.Windows.Forms.Button ButtonAddOrder;
+        private System.Windows.Forms.Button ButtonOrder;
     }
 }
