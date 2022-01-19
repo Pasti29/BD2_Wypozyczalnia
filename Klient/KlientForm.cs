@@ -15,6 +15,7 @@ namespace Klient
         public KlientForm()
         {
             InitializeComponent();
+            ButtonLogout.Enabled = false;
         }
 
         private void ActivateButton(object buttonSender)
@@ -99,7 +100,7 @@ namespace Klient
 
         private void ButtonRegister_Click(object sender, EventArgs e)
         {
-
+            ActivateButton(sender);
         }
     }
 }
