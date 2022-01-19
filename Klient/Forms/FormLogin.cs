@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Klient.Forms
 {
-
     public partial class FormLogin : Form
     {
         public FormLogin()
@@ -62,7 +56,7 @@ namespace Klient.Forms
                 {
                     LabelConnectionStatus.Visible = true;
                     LabelConnectionStatus.ForeColor = Color.Green;
-                    LabelConnectionStatus.Text = "Zalogowany";
+                    LabelConnectionStatus.Text = "Zalogowano";
                     IsLogged();
                 }
             }
