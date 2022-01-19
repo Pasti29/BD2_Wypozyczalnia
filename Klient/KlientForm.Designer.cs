@@ -30,13 +30,14 @@
         {
             this.PanelMenu = new System.Windows.Forms.Panel();
             this.ButtonLogout = new System.Windows.Forms.Button();
-            this.ButtonCatalog = new System.Windows.Forms.Button();
+            this.ButtonRegister = new System.Windows.Forms.Button();
             this.ButtonLogin = new System.Windows.Forms.Button();
             this.PanelLogo = new System.Windows.Forms.Panel();
             this.LabelLogo = new System.Windows.Forms.Label();
             this.PanelTitleBar = new System.Windows.Forms.Panel();
             this.LabelTitle = new System.Windows.Forms.Label();
             this.PanelDesktop = new System.Windows.Forms.Panel();
+            this.ButtonCatalog = new System.Windows.Forms.Button();
             this.PanelMenu.SuspendLayout();
             this.PanelLogo.SuspendLayout();
             this.PanelTitleBar.SuspendLayout();
@@ -45,8 +46,9 @@
             // PanelMenu
             // 
             this.PanelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
-            this.PanelMenu.Controls.Add(this.ButtonLogout);
             this.PanelMenu.Controls.Add(this.ButtonCatalog);
+            this.PanelMenu.Controls.Add(this.ButtonLogout);
+            this.PanelMenu.Controls.Add(this.ButtonRegister);
             this.PanelMenu.Controls.Add(this.ButtonLogin);
             this.PanelMenu.Controls.Add(this.PanelLogo);
             this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -70,25 +72,24 @@
             this.ButtonLogout.Text = "Wyloguj się";
             this.ButtonLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ButtonLogout.UseVisualStyleBackColor = true;
-            this.ButtonLogout.Visible = false;
             this.ButtonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);
             // 
-            // ButtonCatalog
+            // ButtonRegister
             // 
-            this.ButtonCatalog.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ButtonCatalog.FlatAppearance.BorderSize = 0;
-            this.ButtonCatalog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonCatalog.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ButtonCatalog.ForeColor = System.Drawing.Color.Gainsboro;
-            this.ButtonCatalog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ButtonCatalog.Location = new System.Drawing.Point(0, 160);
-            this.ButtonCatalog.Name = "ButtonCatalog";
-            this.ButtonCatalog.Size = new System.Drawing.Size(220, 80);
-            this.ButtonCatalog.TabIndex = 2;
-            this.ButtonCatalog.Text = "Wyświetl katalog";
-            this.ButtonCatalog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ButtonCatalog.UseVisualStyleBackColor = true;
-            this.ButtonCatalog.Click += new System.EventHandler(this.ButtonCatalog_Click);
+            this.ButtonRegister.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ButtonRegister.FlatAppearance.BorderSize = 0;
+            this.ButtonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonRegister.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ButtonRegister.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ButtonRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ButtonRegister.Location = new System.Drawing.Point(0, 160);
+            this.ButtonRegister.Name = "ButtonRegister";
+            this.ButtonRegister.Size = new System.Drawing.Size(220, 80);
+            this.ButtonRegister.TabIndex = 2;
+            this.ButtonRegister.Text = "Rejestracja";
+            this.ButtonRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ButtonRegister.UseVisualStyleBackColor = true;
+            this.ButtonRegister.Click += new System.EventHandler(this.ButtonRegister_Click);
             // 
             // ButtonLogin
             // 
@@ -158,6 +159,23 @@
             this.PanelDesktop.Size = new System.Drawing.Size(1044, 601);
             this.PanelDesktop.TabIndex = 3;
             // 
+            // ButtonCatalog
+            // 
+            this.ButtonCatalog.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ButtonCatalog.FlatAppearance.BorderSize = 0;
+            this.ButtonCatalog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonCatalog.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ButtonCatalog.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ButtonCatalog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ButtonCatalog.Location = new System.Drawing.Point(0, 240);
+            this.ButtonCatalog.Name = "ButtonCatalog";
+            this.ButtonCatalog.Size = new System.Drawing.Size(220, 80);
+            this.ButtonCatalog.TabIndex = 2;
+            this.ButtonCatalog.Text = "Wyświetl katalog";
+            this.ButtonCatalog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ButtonCatalog.UseVisualStyleBackColor = true;
+            this.ButtonCatalog.Click += new System.EventHandler(this.ButtonCatalog_Click);
+            // 
             // KlientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -182,10 +200,11 @@
         private System.Windows.Forms.Button ButtonLogin;
         private System.Windows.Forms.Panel PanelLogo;
         private System.Windows.Forms.Button ButtonLogout;
-        private System.Windows.Forms.Button ButtonCatalog;
+        private System.Windows.Forms.Button ButtonRegister;
         private System.Windows.Forms.Panel PanelTitleBar;
         private System.Windows.Forms.Label LabelTitle;
         private System.Windows.Forms.Label LabelLogo;
         private System.Windows.Forms.Panel PanelDesktop;
+        private System.Windows.Forms.Button ButtonCatalog;
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Klient
 {
@@ -8,6 +10,7 @@ namespace Klient
     {
         private Form? activeForm;
         private Button? currentButton;
+        static public SqlConnection? connection;
 
         public KlientForm()
         {
@@ -84,10 +87,19 @@ namespace Klient
 
         private void ButtonLogout_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            if (connection != null)
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+                ActivateButton(sender);
+            }
         }
-        //private void KlientForm_Load(object sender, EventArgs e)
-        //{
-        //}
+
+        private void ButtonRegister_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
