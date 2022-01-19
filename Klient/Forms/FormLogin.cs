@@ -17,50 +17,55 @@ namespace Klient.Forms
         public FormLogin()
         {
             InitializeComponent();
+            if (KlientForm.connection != null && KlientForm.connection.State == ConnectionState.Open)
+            {
+                IsLogged();
+            }
         }
 
-        private void TextBoxPassword_TextChanged(object sender, EventArgs e)
+        private void IsLogged()
         {
-
+            LabelLogged.Visible = true;
+            LabelLogged.Text = "Jesteś już zalogowany";
+            TextBoxUser.Enabled = false;
+            TextBoxPassword.Enabled = false;
+            ButtonLogin.Enabled = false;
         }
 
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
             if (TextBoxUser.Text.Equals(String.Empty) || TextBoxPassword.Text.Equals(String.Empty))
             {
-                MessageBox.Show("Nie wpisano danych!", "Błąd");
-            } else
+                LabelConnectionStatus.Visible = true;
+                LabelConnectionStatus.ForeColor = Color.Red;
+                LabelConnectionStatus.Text = "Nie wpisano danych";
+            }
+            else
             {
                 String user = TextBoxUser.Text;
                 String password = TextBoxPassword.Text;
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder("Data Source=LEGIO;Initial Catalog=WypozyczalniaSamochodow");
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(Resource.ConnectionString);
                 builder.UserID = user;
                 builder.Password = password;
-                SqlConnection connection = new SqlConnection(builder.ConnectionString);
+                KlientForm.connection = new SqlConnection(builder.ConnectionString);
                 try
                 {
-                    connection.Open();
+                    KlientForm.connection.Open();
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show("Źle wpisałeś dane!", "Błąd");
+                    LabelConnectionStatus.Visible = true;
+                    LabelConnectionStatus.ForeColor = Color.Red;
+                    LabelConnectionStatus.Text = "Dane niepoprawne";
                 }
-                if (connection.State == ConnectionState.Open)
+                if (KlientForm.connection.State == ConnectionState.Open)
                 {
-                    MessageBox.Show("Połączenie nawiązane", "Udało się");
-                    connection.Close();
+                    LabelConnectionStatus.Visible = true;
+                    LabelConnectionStatus.ForeColor = Color.Green;
+                    LabelConnectionStatus.Text = "Zalogowany";
+                    IsLogged();
                 }
-                //if (connection.State != ConnectionState.Open)
-                //{
-                //    MessageBox.Show("Źle wpisałeś dane!", "Błąd");
-                //}
-                //else
-                //{
-                //    connection.Close();
-                //}
             }
-            //Close();
-            
         }
     }
 }
