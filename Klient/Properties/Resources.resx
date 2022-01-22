@@ -120,4 +120,7 @@
   <data name="ConnectionString" xml:space="preserve">
     <value>Server=LEGIO;Database=WypozyczalniaSamochodow;</value>
   </data>
+  <data name="RegisterString" xml:space="preserve">
+    <value>Server=LEGIO;Database=WypozyczalniaSamochodow;UID=register;Password=qwerty</value>
+  </data>
 </root>

@@ -14,10 +14,6 @@ namespace Klient.Forms
         {
             this.klientForm = klientForm;
             InitializeComponent();
-            if (Repository.IsConnectionOpened())
-            {
-                IsLogged();
-            }
         }
 
         private void IsLogged()
@@ -36,42 +32,50 @@ namespace Klient.Forms
                 LabelConnectionStatus.Visible = true;
                 LabelConnectionStatus.ForeColor = Color.Red;
                 LabelConnectionStatus.Text = "Nie wpisano wszystkich danych";
+                return;
             }
-            else
+
+            string user = TextBoxUser.Text;
+            string password = TextBoxPassword.Text;
+
+            if (!Repository.OpenConnection(user, password))
             {
-                string user = TextBoxUser.Text;
-                string password = TextBoxPassword.Text;
-                if (Repository.OpenConnection(user, password))
-                {
-                    string? role = Repository.GetCurrentUserRole();
-                    if (role == "Klient")
-                    {
-                        LabelConnectionStatus.Visible = true;
-                        LabelConnectionStatus.ForeColor = Color.Green;
-                        LabelConnectionStatus.Text = "Zalogowano";
-                        IsLogged();
-                        klientForm.ButtonLogin_Visible(false);
-                        klientForm.ButtonRegister_Visible(false);
-                        klientForm.ButtonAddOrder_Enable(true);
-                        klientForm.ButtonOrder_Enable(true);
-                        klientForm.ButtonLogout_Visible(true);
-                    }
-                    else
-                    {
-                        Repository.CloseConnection();
-                        LabelConnectionStatus.Visible = true;
-                        LabelConnectionStatus.ForeColor = Color.Blue;
-                        LabelConnectionStatus.Text = "To jest aplikacja kliencka\n" +
-                                                     "Pracownik nie może się tu zalogować";
-                    }
-                }
-                else
-                {
-                    LabelConnectionStatus.Visible = true;
-                    LabelConnectionStatus.ForeColor = Color.Red;
-                    LabelConnectionStatus.Text = "Niepoprawne dane";
-                }
+                LabelConnectionStatus.Visible = true;
+                LabelConnectionStatus.ForeColor = Color.Red;
+                LabelConnectionStatus.Text = "Niepoprawne dane";
+                return;
             }
+
+            string? role = Repository.GetCurrentUserRole();
+
+            if (role != "Klient")
+            {
+                Repository.CloseConnection();
+                LabelConnectionStatus.Visible = true;
+                LabelConnectionStatus.ForeColor = Color.Blue;
+                LabelConnectionStatus.Text = "To jest aplikacja kliencka\n" +
+                                             "Pracownik nie może się tu zalogować";
+                return;
+            }
+
+            if (!Repository.IsVerified())
+            {
+                Repository.CloseConnection();
+                LabelConnectionStatus.Visible = true;
+                LabelConnectionStatus.ForeColor = Color.Blue;
+                LabelConnectionStatus.Text = "Konto nie zostało jeszcze zweryfikowane\n";
+                return;
+            }
+
+            LabelConnectionStatus.Visible = true;
+            LabelConnectionStatus.ForeColor = Color.Green;
+            LabelConnectionStatus.Text = "Zalogowano";
+            IsLogged();
+            klientForm.ButtonLogin_Visible(false);
+            klientForm.ButtonRegister_Visible(false);
+            klientForm.ButtonAddOrder_Enable(true);
+            klientForm.ButtonOrder_Enable(true);
+            klientForm.ButtonLogout_Visible(true);
         }
 
         private void TextBoxUser_TextChanged(object sender, EventArgs e)

@@ -95,6 +95,7 @@
             this.TextBoxOplata.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TextBoxOplata.Location = new System.Drawing.Point(161, 296);
             this.TextBoxOplata.Name = "TextBoxOplata";
+            this.TextBoxOplata.ReadOnly = true;
             this.TextBoxOplata.Size = new System.Drawing.Size(167, 25);
             this.TextBoxOplata.TabIndex = 17;
             // 
@@ -115,6 +116,7 @@
             this.TextBoxDataOddania.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TextBoxDataOddania.Location = new System.Drawing.Point(161, 265);
             this.TextBoxDataOddania.Name = "TextBoxDataOddania";
+            this.TextBoxDataOddania.ReadOnly = true;
             this.TextBoxDataOddania.Size = new System.Drawing.Size(167, 25);
             this.TextBoxDataOddania.TabIndex = 15;
             // 
@@ -135,6 +137,7 @@
             this.TextBoxDataWypoczyczenia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TextBoxDataWypoczyczenia.Location = new System.Drawing.Point(161, 234);
             this.TextBoxDataWypoczyczenia.Name = "TextBoxDataWypoczyczenia";
+            this.TextBoxDataWypoczyczenia.ReadOnly = true;
             this.TextBoxDataWypoczyczenia.Size = new System.Drawing.Size(167, 25);
             this.TextBoxDataWypoczyczenia.TabIndex = 13;
             // 
@@ -155,6 +158,7 @@
             this.TextBoxPojemnoscSilnika.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TextBoxPojemnoscSilnika.Location = new System.Drawing.Point(161, 203);
             this.TextBoxPojemnoscSilnika.Name = "TextBoxPojemnoscSilnika";
+            this.TextBoxPojemnoscSilnika.ReadOnly = true;
             this.TextBoxPojemnoscSilnika.Size = new System.Drawing.Size(167, 25);
             this.TextBoxPojemnoscSilnika.TabIndex = 11;
             // 
@@ -175,6 +179,7 @@
             this.TextBoxPredkoscMAX.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TextBoxPredkoscMAX.Location = new System.Drawing.Point(161, 172);
             this.TextBoxPredkoscMAX.Name = "TextBoxPredkoscMAX";
+            this.TextBoxPredkoscMAX.ReadOnly = true;
             this.TextBoxPredkoscMAX.Size = new System.Drawing.Size(167, 25);
             this.TextBoxPredkoscMAX.TabIndex = 9;
             // 
@@ -195,6 +200,7 @@
             this.TextBoxSrednieSpalanie.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TextBoxSrednieSpalanie.Location = new System.Drawing.Point(161, 141);
             this.TextBoxSrednieSpalanie.Name = "TextBoxSrednieSpalanie";
+            this.TextBoxSrednieSpalanie.ReadOnly = true;
             this.TextBoxSrednieSpalanie.Size = new System.Drawing.Size(167, 25);
             this.TextBoxSrednieSpalanie.TabIndex = 7;
             // 
@@ -215,6 +221,7 @@
             this.TextBoxRocznik.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TextBoxRocznik.Location = new System.Drawing.Point(161, 110);
             this.TextBoxRocznik.Name = "TextBoxRocznik";
+            this.TextBoxRocznik.ReadOnly = true;
             this.TextBoxRocznik.Size = new System.Drawing.Size(167, 25);
             this.TextBoxRocznik.TabIndex = 5;
             // 
@@ -235,6 +242,7 @@
             this.TextBoxModel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TextBoxModel.Location = new System.Drawing.Point(161, 79);
             this.TextBoxModel.Name = "TextBoxModel";
+            this.TextBoxModel.ReadOnly = true;
             this.TextBoxModel.Size = new System.Drawing.Size(167, 25);
             this.TextBoxModel.TabIndex = 3;
             // 
@@ -255,6 +263,7 @@
             this.TextBoxMarka.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TextBoxMarka.Location = new System.Drawing.Point(161, 48);
             this.TextBoxMarka.Name = "TextBoxMarka";
+            this.TextBoxMarka.ReadOnly = true;
             this.TextBoxMarka.Size = new System.Drawing.Size(167, 25);
             this.TextBoxMarka.TabIndex = 1;
             // 

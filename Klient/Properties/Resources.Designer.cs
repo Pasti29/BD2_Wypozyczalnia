@@ -68,5 +68,14 @@ namespace Klient.Properties {
                 return ResourceManager.GetString("ConnectionString", resourceCulture);
             }
         }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Server=LEGIO;Database=WypozyczalniaSamochodow;UID=register;Password=qwerty.
+        /// </summary>
+        internal static string RegisterString {
+            get {
+                return ResourceManager.GetString("RegisterString", resourceCulture);
+            }
+        }
     }
 }
