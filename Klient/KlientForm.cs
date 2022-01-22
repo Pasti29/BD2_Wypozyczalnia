@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using Klient.Database;
 
 namespace Klient
 {
     public partial class KlientForm : Form
     {
-        private static SqlConnection? connection;
-        private static string? userLogin;
         private Form? activeForm;
         private Button? currentButton;
 
@@ -18,12 +15,9 @@ namespace Klient
             InitializeComponent();
         }
 
-        public static SqlConnection? Connection { get => connection; set => connection = value; }
-        public static string? UserLogin { get => userLogin; set => userLogin = value; }
-
-        public void ButtonAddOrder_Visible(bool visible)
+        public void ButtonAddOrder_Enable(bool enable)
         {
-            ButtonAddOrder.Visible = visible;
+            ButtonAddOrder.Enabled = enable;
         }
 
         public void ButtonLogin_Visible(bool visible)
@@ -36,9 +30,9 @@ namespace Klient
             ButtonLogout.Visible = visible;
         }
 
-        public void ButtonOrder_Visible(bool visible)
+        public void ButtonOrder_Enable(bool enabled)
         {
-            ButtonOrder.Visible = visible;
+            ButtonOrder.Enabled = enabled;
         }
 
         public void ButtonRegister_Visible(bool visible)
@@ -65,7 +59,7 @@ namespace Klient
                     currentButton = (Button)buttonSender;
                     currentButton.BackColor = Color.FromArgb(170, 164, 255);
                     currentButton.ForeColor = Color.White;
-                    currentButton.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+                    currentButton.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point);
                 }
             }
         }
@@ -88,19 +82,14 @@ namespace Klient
         private void ButtonLogout_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            if (Connection != null)
+            if (Repository.IsConnectionOpened())
             {
-                if (Connection.State == ConnectionState.Open)
-                {
-                    Connection.Close();
-                    Connection = null;
-                    UserLogin = null;
-                }
+                Repository.CloseConnection();
                 DisableButton();
                 ButtonLogin_Visible(true);
                 ButtonRegister_Visible(true);
-                ButtonAddOrder_Visible(false);
-                ButtonOrder_Visible(false);
+                ButtonAddOrder_Enable(false);
+                ButtonOrder_Enable(false);
                 ButtonLogout_Visible(false);
                 ReturnToHomePage();
             }
@@ -124,7 +113,7 @@ namespace Klient
                 {
                     previousBtn.BackColor = Color.FromArgb(50, 52, 77);
                     previousBtn.ForeColor = Color.Gainsboro;
-                    previousBtn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+                    previousBtn.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
                 }
             }
         }

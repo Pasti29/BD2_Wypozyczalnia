@@ -71,7 +71,7 @@
             this.LabelConnectionStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelConnectionStatus.Location = new System.Drawing.Point(223, 96);
             this.LabelConnectionStatus.Name = "LabelConnectionStatus";
-            this.LabelConnectionStatus.Size = new System.Drawing.Size(182, 23);
+            this.LabelConnectionStatus.Size = new System.Drawing.Size(182, 54);
             this.LabelConnectionStatus.TabIndex = 5;
             this.LabelConnectionStatus.Text = "#Status połączenia#";
             this.LabelConnectionStatus.Visible = false;
@@ -83,6 +83,7 @@
             this.TextBoxUser.Name = "TextBoxUser";
             this.TextBoxUser.Size = new System.Drawing.Size(269, 25);
             this.TextBoxUser.TabIndex = 2;
+            this.TextBoxUser.TextChanged += new System.EventHandler(this.TextBoxUser_TextChanged);
             // 
             // ButtonLogin
             // 
@@ -105,6 +106,7 @@
             this.TextBoxPassword.PasswordChar = '*';
             this.TextBoxPassword.Size = new System.Drawing.Size(269, 25);
             this.TextBoxPassword.TabIndex = 3;
+            this.TextBoxPassword.TextChanged += new System.EventHandler(this.TextBoxPassword_TextChanged);
             // 
             // LabelUser
             // 

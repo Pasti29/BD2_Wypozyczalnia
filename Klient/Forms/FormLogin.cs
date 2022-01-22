@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using Klient.Database;
 
 namespace Klient.Forms
 {
@@ -15,7 +14,7 @@ namespace Klient.Forms
         {
             this.klientForm = klientForm;
             InitializeComponent();
-            if (KlientForm.Connection != null && KlientForm.Connection.State == ConnectionState.Open)
+            if (Repository.IsConnectionOpened())
             {
                 IsLogged();
             }
@@ -32,7 +31,7 @@ namespace Klient.Forms
 
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            if (TextBoxUser.Text.Equals(String.Empty) || TextBoxPassword.Text.Equals(String.Empty))
+            if (TextBoxUser.Text.Equals(string.Empty) || TextBoxPassword.Text.Equals(string.Empty))
             {
                 LabelConnectionStatus.Visible = true;
                 LabelConnectionStatus.ForeColor = Color.Red;
@@ -41,36 +40,48 @@ namespace Klient.Forms
             else
             {
                 string user = TextBoxUser.Text;
-                SqlConnectionStringBuilder builder = new(Resource.ConnectionString)
+                string password = TextBoxPassword.Text;
+                if (Repository.OpenConnection(user, password))
                 {
-                    UserID = user,
-                    Password = TextBoxPassword.Text
-                };
-                KlientForm.Connection = new SqlConnection(builder.ConnectionString);
-                try
-                {
-                    KlientForm.Connection.Open();
+                    string? role = Repository.GetCurrentUserRole();
+                    if (role == "Klient")
+                    {
+                        LabelConnectionStatus.Visible = true;
+                        LabelConnectionStatus.ForeColor = Color.Green;
+                        LabelConnectionStatus.Text = "Zalogowano";
+                        IsLogged();
+                        klientForm.ButtonLogin_Visible(false);
+                        klientForm.ButtonRegister_Visible(false);
+                        klientForm.ButtonAddOrder_Enable(true);
+                        klientForm.ButtonOrder_Enable(true);
+                        klientForm.ButtonLogout_Visible(true);
+                    }
+                    else
+                    {
+                        Repository.CloseConnection();
+                        LabelConnectionStatus.Visible = true;
+                        LabelConnectionStatus.ForeColor = Color.Blue;
+                        LabelConnectionStatus.Text = "To jest aplikacja kliencka\n" +
+                                                     "Pracownik nie może się tu zalogować";
+                    }
                 }
-                catch (SqlException)
+                else
                 {
                     LabelConnectionStatus.Visible = true;
                     LabelConnectionStatus.ForeColor = Color.Red;
                     LabelConnectionStatus.Text = "Niepoprawne dane";
                 }
-                if (KlientForm.Connection.State == ConnectionState.Open)
-                {
-                    KlientForm.UserLogin = TextBoxUser.Text;
-                    LabelConnectionStatus.Visible = true;
-                    LabelConnectionStatus.ForeColor = Color.Green;
-                    LabelConnectionStatus.Text = "Zalogowano";
-                    IsLogged();
-                    klientForm.ButtonLogin_Visible(false);
-                    klientForm.ButtonRegister_Visible(false);
-                    klientForm.ButtonAddOrder_Visible(true);
-                    klientForm.ButtonOrder_Visible(true);
-                    klientForm.ButtonLogout_Visible(true);
-                }
             }
+        }
+
+        private void TextBoxUser_TextChanged(object sender, EventArgs e)
+        {
+            LabelConnectionStatus.Visible = false;
+        }
+
+        private void TextBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+            LabelConnectionStatus.Visible = false;
         }
     }
 }

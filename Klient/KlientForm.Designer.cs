@@ -64,6 +64,7 @@
             // ButtonAddOrder
             // 
             this.ButtonAddOrder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ButtonAddOrder.Enabled = false;
             this.ButtonAddOrder.FlatAppearance.BorderSize = 0;
             this.ButtonAddOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonAddOrder.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -76,12 +77,12 @@
             this.ButtonAddOrder.Text = "Utwórz nowe wypożyczenie";
             this.ButtonAddOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ButtonAddOrder.UseVisualStyleBackColor = true;
-            this.ButtonAddOrder.Visible = false;
             this.ButtonAddOrder.Click += new System.EventHandler(this.ButtonAddOrder_Click);
             // 
             // ButtonOrder
             // 
             this.ButtonOrder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ButtonOrder.Enabled = false;
             this.ButtonOrder.FlatAppearance.BorderSize = 0;
             this.ButtonOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonOrder.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -94,7 +95,6 @@
             this.ButtonOrder.Text = "Informacje o aktualnym wypożyczeniu";
             this.ButtonOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ButtonOrder.UseVisualStyleBackColor = true;
-            this.ButtonOrder.Visible = false;
             this.ButtonOrder.Click += new System.EventHandler(this.ButtonOrder_Click);
             // 
             // ButtonCatalog

@@ -1,6 +1,6 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
+using Klient.Database;
 
 namespace Klient.Forms
 {
@@ -23,11 +23,7 @@ namespace Klient.Forms
                 TextBoxOplata
             };
 
-            SqlCommand cmd = new("SELECT * FROM dbo.dajInformacjeOWypozyczeniu(@login)", KlientForm.Connection);
-            cmd.Parameters.AddWithValue("@login", KlientForm.UserLogin);
-            SqlDataAdapter adapter = new(cmd);
-            DataTable dt = new();
-            adapter.Fill(dt);
+            DataTable dt = Repository.GetOrder();
 
             if (dt.Rows.Count == 0)
             {
