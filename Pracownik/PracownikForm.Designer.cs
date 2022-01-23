@@ -56,7 +56,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 560);
+            this.panelMenu.Size = new System.Drawing.Size(220, 615);
             this.panelMenu.TabIndex = 1;
             // 
             // panelEnd
@@ -65,7 +65,7 @@
             this.panelEnd.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelEnd.Location = new System.Drawing.Point(0, 480);
             this.panelEnd.Name = "panelEnd";
-            this.panelEnd.Size = new System.Drawing.Size(220, 80);
+            this.panelEnd.Size = new System.Drawing.Size(220, 135);
             this.panelEnd.TabIndex = 6;
             // 
             // btnWyloguj
@@ -161,18 +161,19 @@
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(220, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(842, 80);
+            this.panelTitle.Size = new System.Drawing.Size(1005, 80);
             this.panelTitle.TabIndex = 2;
             // 
             // lblTitle
             // 
+            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblTitle.Size = new System.Drawing.Size(842, 80);
+            this.lblTitle.Size = new System.Drawing.Size(1005, 80);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "LOGOWANIE";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,14 +183,14 @@
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(220, 80);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(842, 480);
+            this.panelContent.Size = new System.Drawing.Size(1005, 535);
             this.panelContent.TabIndex = 3;
             // 
             // PracownikForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 560);
+            this.ClientSize = new System.Drawing.Size(1225, 615);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);

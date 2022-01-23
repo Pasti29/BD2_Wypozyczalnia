@@ -87,7 +87,7 @@ namespace Pracownik
                     _currentPressedButton = (Button)eventSender;
 
                     // Ustawianie jego nadzwyczajnych parametrów
-                    _currentPressedButton.BackColor = Color.FromArgb(44, 44, 166);
+                    _currentPressedButton.BackColor = Color.FromArgb(0, 150, 136);
                     _currentPressedButton.ForeColor = Color.White;
                     _currentPressedButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 
