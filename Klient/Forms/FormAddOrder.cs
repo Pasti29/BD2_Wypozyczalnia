@@ -15,6 +15,9 @@ namespace Klient.Forms
         public FormAddOrder()
         {
             InitializeComponent();
+            MonthCalendarDataOddania.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1);
         }
+
+       
     }
 }
