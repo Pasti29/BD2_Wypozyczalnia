@@ -1,6 +1,6 @@
-﻿using System.Data;
+﻿using Klient.Database;
+using System.Data;
 using System.Windows.Forms;
-using Klient.Database;
 
 namespace Klient.Forms
 {
@@ -42,7 +42,6 @@ namespace Klient.Forms
                     else
                     {
                         textBox.Text = dt.Rows[0][i].ToString();
-
                     }
                     i++;
                 }

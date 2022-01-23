@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Klient.Database;
+using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Klient.Database;
 
 namespace Klient.Forms
 {
@@ -27,17 +22,9 @@ namespace Klient.Forms
             DataTable dt = Repository.GetAvailableCars();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string s = dt.Rows[i][0].ToString() + " " + dt.Rows[i][1].ToString() + " " + dt.Rows[i][2].ToString() + " " + dt.Rows[i][3]; 
+                string s = dt.Rows[i][0].ToString() + " " + dt.Rows[i][1].ToString() + " " + dt.Rows[i][2].ToString() + " " + dt.Rows[i][3];
                 ListBoxCars.Items.Add(s);
             }
-        }
-
-        private void HasOrder()
-        {
-            LabelHaveOrder.Visible = true;
-            ListBoxCars.Enabled = false;
-            MonthCalendarDataOddania.Enabled = false;
-            ButtonAddOrder.Enabled = false;
         }
 
         private void ButtonAddOrder_Click(object sender, EventArgs e)
@@ -54,7 +41,7 @@ namespace Klient.Forms
                 LabelStatus.Visible = true;
                 return;
             }
-            
+
             nrRejestracyjny = nrRejestracyjny.Substring(0, 7);
             int status = Repository.AddOrder(nrRejestracyjny, MonthCalendarDataOddania.SelectionStart);
             if (status > 0)
@@ -70,6 +57,14 @@ namespace Klient.Forms
                 LabelStatus.Text = "Coś poszło nie tak";
                 LabelStatus.Visible = true;
             }
+        }
+
+        private void HasOrder()
+        {
+            LabelHaveOrder.Visible = true;
+            ListBoxCars.Enabled = false;
+            MonthCalendarDataOddania.Enabled = false;
+            ButtonAddOrder.Enabled = false;
         }
     }
 }

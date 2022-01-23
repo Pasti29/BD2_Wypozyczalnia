@@ -1,33 +1,26 @@
 ﻿using Klient.Database;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlTypes;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Klient.Forms
 {
     public partial class FormCatalog : Form
     {
-
         private readonly DataTable _carsDataTable;
-
 
         public FormCatalog()
         {
             InitializeComponent();
 
-            // Zaczerpnięcie informacji o wszystkich autach z bazy danych 
+            // Zaczerpnięcie informacji o wszystkich autach z bazy danych
             _carsDataTable = Repository.GetCarsTable();
 
-            // Dodanie zdjęc do 'imageListWithCars' 
-            foreach (DataRow row in _carsDataTable.Rows) 
+            // Dodanie zdjęc do 'imageListWithCars'
+            foreach (DataRow row in _carsDataTable.Rows)
             {
                 byte[] imageInBytes = (byte[])row["Zdjecie"];
                 MemoryStream memoryStream = new MemoryStream(imageInBytes);
@@ -41,7 +34,6 @@ namespace Klient.Forms
             StringBuilder stringBuilder = new StringBuilder();
             foreach (DataRow row in _carsDataTable.Rows)
             {
-                
                 stringBuilder.Append(row["Marka"]).Append(" ").Append(row["Model"]).Append(" [").Append(row["Rocznik"]).Append("]");
                 // Utworzenie 'ListViewItem' o danym opisie i indeksie obrazka z 'imageListWithCars'
                 ListViewItem item = new ListViewItem(stringBuilder.ToString(), imageIndex);
@@ -49,7 +41,6 @@ namespace Klient.Forms
                 imageIndex++;
                 stringBuilder.Clear();
             }
-
         }
 
         private void listViewCars_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,7 +49,7 @@ namespace Klient.Forms
             {
                 // Przypisane indeksu zaznaczonego obrazka do zmiennej 'selectedIndex'
                 int selectedIndex = listViewCars.SelectedItems[0].Index;
-                // Wyznaczenie wiersza 
+                // Wyznaczenie wiersza
                 DataRow selectedRow = _carsDataTable.Rows[selectedIndex];
 
                 // Przypisanie wartości do etykiet
@@ -71,9 +62,8 @@ namespace Klient.Forms
                 labelMaxSpeedData.Text = selectedRow[6].ToString();
                 labelEngineCapacityData.Text = selectedRow[7].ToString();
                 labelControlDateData.Text = selectedRow[8].ToString().Substring(0, 10);
-
             }
-            else if (listViewCars.SelectedItems.Count == 0) 
+            else if (listViewCars.SelectedItems.Count == 0)
             {
                 // Jeśli nic nie zostało kliknięte - czyścimy wartości etykiet
                 labelRegistrationData.Text = "";
@@ -87,6 +77,5 @@ namespace Klient.Forms
                 labelControlDateData.Text = "";
             }
         }
-
     }
 }
