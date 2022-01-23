@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Klient.Database
@@ -9,11 +10,55 @@ namespace Klient.Database
         private static string? userLogin;
         public static SqlConnection? Connection => connection;
 
+        public static int AddOrder(string nrRejestracyjny, DateTime dataOddania)
+        {
+            string stringDataOddania = dataOddania.Year.ToString() + dataOddania.Month.ToString().PadLeft(2, '0') + dataOddania.Day.ToString().PadLeft(2, '0');
+            string stringDataWypozyczenia = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString().PadLeft(2, '0') + DateTime.Now.Day.ToString().PadLeft(2, '0');
+            string command = "EXEC dbo.dodajZamowienie " +
+                             $"{userLogin}, " +
+                             $"{nrRejestracyjny}, " +
+                             $"'{stringDataWypozyczenia}', " +
+                             $"'{stringDataOddania}';";
+            SqlCommand cmd = new(command, connection);
+            return cmd.ExecuteNonQuery();
+        }
+
         public static void CloseConnection()
         {
             connection?.Close();
             connection = null;
             userLogin = null;
+        }
+
+        public static DataTable GetAvailableCars()
+        {
+            SqlCommand cmd = new("SELECT * FROM dbo.wyswietlDostepneSamochody()", connection);
+            SqlDataAdapter adapter = new(cmd);
+            DataTable dt = new();
+            adapter.Fill(dt);
+
+            return dt;
+        }
+
+        public static DataTable GetCarsTable()
+        {
+            if (!IsConnectionOpened())
+            {
+                connection = new(Properties.Resources.GuestString);
+                connection.Open();
+            }
+
+            string query = "SELECT * from dbo.wyswietlSamochody()";
+
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            if (connection.WorkstationId.Equals("guest"))
+            {
+                connection.Close();
+            }
+
+            return dt;
         }
 
         public static string? GetCurrentUserRole()

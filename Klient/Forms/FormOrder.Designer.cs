@@ -48,11 +48,15 @@
             this.LabelModel = new System.Windows.Forms.Label();
             this.TextBoxMarka = new System.Windows.Forms.TextBox();
             this.LabelMarka = new System.Windows.Forms.Label();
+            this.TextBoxNrRejestracyjny = new System.Windows.Forms.TextBox();
+            this.LabelNrRejestracyjny = new System.Windows.Forms.Label();
             this.PanelDesktop.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelDesktop
             // 
+            this.PanelDesktop.Controls.Add(this.TextBoxNrRejestracyjny);
+            this.PanelDesktop.Controls.Add(this.LabelNrRejestracyjny);
             this.PanelDesktop.Controls.Add(this.LabelNoOrder);
             this.PanelDesktop.Controls.Add(this.TextBoxOplata);
             this.PanelDesktop.Controls.Add(this.LabelOplata);
@@ -93,7 +97,7 @@
             // TextBoxOplata
             // 
             this.TextBoxOplata.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TextBoxOplata.Location = new System.Drawing.Point(161, 296);
+            this.TextBoxOplata.Location = new System.Drawing.Point(161, 329);
             this.TextBoxOplata.Name = "TextBoxOplata";
             this.TextBoxOplata.ReadOnly = true;
             this.TextBoxOplata.Size = new System.Drawing.Size(167, 25);
@@ -103,7 +107,7 @@
             // 
             this.LabelOplata.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelOplata.AutoSize = true;
-            this.LabelOplata.Location = new System.Drawing.Point(104, 299);
+            this.LabelOplata.Location = new System.Drawing.Point(104, 332);
             this.LabelOplata.Name = "LabelOplata";
             this.LabelOplata.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelOplata.Size = new System.Drawing.Size(47, 17);
@@ -114,7 +118,7 @@
             // TextBoxDataOddania
             // 
             this.TextBoxDataOddania.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TextBoxDataOddania.Location = new System.Drawing.Point(161, 265);
+            this.TextBoxDataOddania.Location = new System.Drawing.Point(161, 298);
             this.TextBoxDataOddania.Name = "TextBoxDataOddania";
             this.TextBoxDataOddania.ReadOnly = true;
             this.TextBoxDataOddania.Size = new System.Drawing.Size(167, 25);
@@ -124,7 +128,7 @@
             // 
             this.LabelDataOddania.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelDataOddania.AutoSize = true;
-            this.LabelDataOddania.Location = new System.Drawing.Point(64, 268);
+            this.LabelDataOddania.Location = new System.Drawing.Point(64, 301);
             this.LabelDataOddania.Name = "LabelDataOddania";
             this.LabelDataOddania.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelDataOddania.Size = new System.Drawing.Size(87, 17);
@@ -135,7 +139,7 @@
             // TextBoxDataWypoczyczenia
             // 
             this.TextBoxDataWypoczyczenia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TextBoxDataWypoczyczenia.Location = new System.Drawing.Point(161, 234);
+            this.TextBoxDataWypoczyczenia.Location = new System.Drawing.Point(161, 267);
             this.TextBoxDataWypoczyczenia.Name = "TextBoxDataWypoczyczenia";
             this.TextBoxDataWypoczyczenia.ReadOnly = true;
             this.TextBoxDataWypoczyczenia.Size = new System.Drawing.Size(167, 25);
@@ -145,7 +149,7 @@
             // 
             this.LabelDataWypozyczenia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelDataWypozyczenia.AutoSize = true;
-            this.LabelDataWypozyczenia.Location = new System.Drawing.Point(33, 237);
+            this.LabelDataWypozyczenia.Location = new System.Drawing.Point(33, 270);
             this.LabelDataWypozyczenia.Name = "LabelDataWypozyczenia";
             this.LabelDataWypozyczenia.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelDataWypozyczenia.Size = new System.Drawing.Size(118, 17);
@@ -156,7 +160,7 @@
             // TextBoxPojemnoscSilnika
             // 
             this.TextBoxPojemnoscSilnika.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TextBoxPojemnoscSilnika.Location = new System.Drawing.Point(161, 203);
+            this.TextBoxPojemnoscSilnika.Location = new System.Drawing.Point(161, 236);
             this.TextBoxPojemnoscSilnika.Name = "TextBoxPojemnoscSilnika";
             this.TextBoxPojemnoscSilnika.ReadOnly = true;
             this.TextBoxPojemnoscSilnika.Size = new System.Drawing.Size(167, 25);
@@ -166,7 +170,7 @@
             // 
             this.LabelPojemnoscSilnika.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelPojemnoscSilnika.AutoSize = true;
-            this.LabelPojemnoscSilnika.Location = new System.Drawing.Point(41, 206);
+            this.LabelPojemnoscSilnika.Location = new System.Drawing.Point(41, 239);
             this.LabelPojemnoscSilnika.Name = "LabelPojemnoscSilnika";
             this.LabelPojemnoscSilnika.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelPojemnoscSilnika.Size = new System.Drawing.Size(110, 17);
@@ -177,7 +181,7 @@
             // TextBoxPredkoscMAX
             // 
             this.TextBoxPredkoscMAX.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TextBoxPredkoscMAX.Location = new System.Drawing.Point(161, 172);
+            this.TextBoxPredkoscMAX.Location = new System.Drawing.Point(161, 205);
             this.TextBoxPredkoscMAX.Name = "TextBoxPredkoscMAX";
             this.TextBoxPredkoscMAX.ReadOnly = true;
             this.TextBoxPredkoscMAX.Size = new System.Drawing.Size(167, 25);
@@ -187,7 +191,7 @@
             // 
             this.LabelPredkoscMAX.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelPredkoscMAX.AutoSize = true;
-            this.LabelPredkoscMAX.Location = new System.Drawing.Point(15, 175);
+            this.LabelPredkoscMAX.Location = new System.Drawing.Point(15, 208);
             this.LabelPredkoscMAX.Name = "LabelPredkoscMAX";
             this.LabelPredkoscMAX.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelPredkoscMAX.Size = new System.Drawing.Size(136, 17);
@@ -198,7 +202,7 @@
             // TextBoxSrednieSpalanie
             // 
             this.TextBoxSrednieSpalanie.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TextBoxSrednieSpalanie.Location = new System.Drawing.Point(161, 141);
+            this.TextBoxSrednieSpalanie.Location = new System.Drawing.Point(161, 174);
             this.TextBoxSrednieSpalanie.Name = "TextBoxSrednieSpalanie";
             this.TextBoxSrednieSpalanie.ReadOnly = true;
             this.TextBoxSrednieSpalanie.Size = new System.Drawing.Size(167, 25);
@@ -208,7 +212,7 @@
             // 
             this.LabelSrednieSpalanie.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelSrednieSpalanie.AutoSize = true;
-            this.LabelSrednieSpalanie.Location = new System.Drawing.Point(47, 144);
+            this.LabelSrednieSpalanie.Location = new System.Drawing.Point(47, 177);
             this.LabelSrednieSpalanie.Name = "LabelSrednieSpalanie";
             this.LabelSrednieSpalanie.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelSrednieSpalanie.Size = new System.Drawing.Size(104, 17);
@@ -219,7 +223,7 @@
             // TextBoxRocznik
             // 
             this.TextBoxRocznik.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TextBoxRocznik.Location = new System.Drawing.Point(161, 110);
+            this.TextBoxRocznik.Location = new System.Drawing.Point(161, 143);
             this.TextBoxRocznik.Name = "TextBoxRocznik";
             this.TextBoxRocznik.ReadOnly = true;
             this.TextBoxRocznik.Size = new System.Drawing.Size(167, 25);
@@ -229,7 +233,7 @@
             // 
             this.LabelRocznik.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelRocznik.AutoSize = true;
-            this.LabelRocznik.Location = new System.Drawing.Point(99, 113);
+            this.LabelRocznik.Location = new System.Drawing.Point(99, 146);
             this.LabelRocznik.Name = "LabelRocznik";
             this.LabelRocznik.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelRocznik.Size = new System.Drawing.Size(52, 17);
@@ -240,7 +244,7 @@
             // TextBoxModel
             // 
             this.TextBoxModel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TextBoxModel.Location = new System.Drawing.Point(161, 79);
+            this.TextBoxModel.Location = new System.Drawing.Point(161, 112);
             this.TextBoxModel.Name = "TextBoxModel";
             this.TextBoxModel.ReadOnly = true;
             this.TextBoxModel.Size = new System.Drawing.Size(167, 25);
@@ -250,7 +254,7 @@
             // 
             this.LabelModel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelModel.AutoSize = true;
-            this.LabelModel.Location = new System.Drawing.Point(105, 82);
+            this.LabelModel.Location = new System.Drawing.Point(105, 115);
             this.LabelModel.Name = "LabelModel";
             this.LabelModel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelModel.Size = new System.Drawing.Size(46, 17);
@@ -261,7 +265,7 @@
             // TextBoxMarka
             // 
             this.TextBoxMarka.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TextBoxMarka.Location = new System.Drawing.Point(161, 48);
+            this.TextBoxMarka.Location = new System.Drawing.Point(161, 81);
             this.TextBoxMarka.Name = "TextBoxMarka";
             this.TextBoxMarka.ReadOnly = true;
             this.TextBoxMarka.Size = new System.Drawing.Size(167, 25);
@@ -271,13 +275,34 @@
             // 
             this.LabelMarka.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelMarka.AutoSize = true;
-            this.LabelMarka.Location = new System.Drawing.Point(106, 51);
+            this.LabelMarka.Location = new System.Drawing.Point(106, 84);
             this.LabelMarka.Name = "LabelMarka";
             this.LabelMarka.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelMarka.Size = new System.Drawing.Size(45, 17);
             this.LabelMarka.TabIndex = 0;
             this.LabelMarka.Text = "Marka";
             this.LabelMarka.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // TextBoxNrRejestracyjny
+            // 
+            this.TextBoxNrRejestracyjny.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TextBoxNrRejestracyjny.Location = new System.Drawing.Point(161, 50);
+            this.TextBoxNrRejestracyjny.Name = "TextBoxNrRejestracyjny";
+            this.TextBoxNrRejestracyjny.ReadOnly = true;
+            this.TextBoxNrRejestracyjny.Size = new System.Drawing.Size(167, 25);
+            this.TextBoxNrRejestracyjny.TabIndex = 20;
+            // 
+            // LabelNrRejestracyjny
+            // 
+            this.LabelNrRejestracyjny.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelNrRejestracyjny.AutoSize = true;
+            this.LabelNrRejestracyjny.Location = new System.Drawing.Point(56, 53);
+            this.LabelNrRejestracyjny.Name = "LabelNrRejestracyjny";
+            this.LabelNrRejestracyjny.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LabelNrRejestracyjny.Size = new System.Drawing.Size(99, 17);
+            this.LabelNrRejestracyjny.TabIndex = 19;
+            this.LabelNrRejestracyjny.Text = "Nr rejestracyjny";
+            this.LabelNrRejestracyjny.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // FormOrder
             // 
@@ -315,5 +340,7 @@
         private System.Windows.Forms.TextBox TextBoxRocznik;
         private System.Windows.Forms.Label LabelRocznik;
         private System.Windows.Forms.Label LabelNoOrder;
+        private System.Windows.Forms.TextBox TextBoxNrRejestracyjny;
+        private System.Windows.Forms.Label LabelNrRejestracyjny;
     }
 }

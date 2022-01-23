@@ -1,6 +1,6 @@
-﻿using System.Data;
+﻿using Klient.Database;
+using System.Data;
 using System.Windows.Forms;
-using Klient.Database;
 
 namespace Klient.Forms
 {
@@ -12,6 +12,7 @@ namespace Klient.Forms
 
             TextBox[] TextBoxesInOrder =
             {
+                TextBoxNrRejestracyjny,
                 TextBoxMarka,
                 TextBoxModel,
                 TextBoxRocznik,
@@ -34,7 +35,14 @@ namespace Klient.Forms
                 int i = 0;
                 foreach (TextBox textBox in TextBoxesInOrder)
                 {
-                    textBox.Text = dt.Rows[0][i].ToString();
+                    if (i == 7 || i == 8)
+                    {
+                        textBox.Text = dt.Rows[0][i].ToString().Substring(0, 10);
+                    }
+                    else
+                    {
+                        textBox.Text = dt.Rows[0][i].ToString();
+                    }
                     i++;
                 }
             }
