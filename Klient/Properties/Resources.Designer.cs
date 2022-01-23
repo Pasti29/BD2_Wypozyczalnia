@@ -72,6 +72,15 @@ namespace Klient.Properties {
         /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Server=LEGIO;Database=WypozyczalniaSamochodow;UID=register;Password=qwerty.
         /// </summary>
+        internal static string GuestString {
+            get {
+                return ResourceManager.GetString("GuestString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Server=LEGIO;Database=WypozyczalniaSamochodow;UID=register;Password=qwerty.
+        /// </summary>
         internal static string RegisterString {
             get {
                 return ResourceManager.GetString("RegisterString", resourceCulture);
