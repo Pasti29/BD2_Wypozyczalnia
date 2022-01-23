@@ -15,6 +15,13 @@ namespace Klient.Forms
         public FormAddOrder()
         {
             InitializeComponent();
+            MonthCalendarDataWypozyczenia.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            MonthCalendarDataWypozyczenia.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1);
+        }
+
+        private void MonthCalendarDataWypozyczenia_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            MonthCalendarDataOddania.MinDate = new DateTime(MonthCalendarDataWypozyczenia.SelectionStart.Year, MonthCalendarDataWypozyczenia.SelectionStart.Month, MonthCalendarDataWypozyczenia.SelectionStart.Day + 1);
         }
     }
 }
