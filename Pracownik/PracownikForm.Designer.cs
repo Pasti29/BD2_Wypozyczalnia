@@ -35,7 +35,6 @@
             this.btnModyfikowanieKat = new System.Windows.Forms.Button();
             this.btnKatalogSamochodow = new System.Windows.Forms.Button();
             this.panelEnd = new System.Windows.Forms.Panel();
-            this.btnRejestracja = new System.Windows.Forms.Button();
             this.btnLogowanie = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelTitle = new System.Windows.Forms.Panel();
@@ -54,7 +53,6 @@
             this.panelMenu.Controls.Add(this.btnModyfikowanieKat);
             this.panelMenu.Controls.Add(this.btnKatalogSamochodow);
             this.panelMenu.Controls.Add(this.panelEnd);
-            this.panelMenu.Controls.Add(this.btnRejestracja);
             this.panelMenu.Controls.Add(this.btnLogowanie);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -87,7 +85,7 @@
             this.btnHistoriaWypozyczen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHistoriaWypozyczen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnHistoriaWypozyczen.ForeColor = System.Drawing.Color.White;
-            this.btnHistoriaWypozyczen.Location = new System.Drawing.Point(0, 480);
+            this.btnHistoriaWypozyczen.Location = new System.Drawing.Point(0, 400);
             this.btnHistoriaWypozyczen.Name = "btnHistoriaWypozyczen";
             this.btnHistoriaWypozyczen.Size = new System.Drawing.Size(222, 80);
             this.btnHistoriaWypozyczen.TabIndex = 10;
@@ -103,7 +101,7 @@
             this.btnDodajUzytkownika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDodajUzytkownika.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDodajUzytkownika.ForeColor = System.Drawing.Color.White;
-            this.btnDodajUzytkownika.Location = new System.Drawing.Point(0, 400);
+            this.btnDodajUzytkownika.Location = new System.Drawing.Point(0, 320);
             this.btnDodajUzytkownika.Name = "btnDodajUzytkownika";
             this.btnDodajUzytkownika.Size = new System.Drawing.Size(222, 80);
             this.btnDodajUzytkownika.TabIndex = 9;
@@ -119,7 +117,7 @@
             this.btnModyfikowanieKat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModyfikowanieKat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnModyfikowanieKat.ForeColor = System.Drawing.Color.White;
-            this.btnModyfikowanieKat.Location = new System.Drawing.Point(0, 320);
+            this.btnModyfikowanieKat.Location = new System.Drawing.Point(0, 240);
             this.btnModyfikowanieKat.Name = "btnModyfikowanieKat";
             this.btnModyfikowanieKat.Size = new System.Drawing.Size(222, 80);
             this.btnModyfikowanieKat.TabIndex = 8;
@@ -135,7 +133,7 @@
             this.btnKatalogSamochodow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKatalogSamochodow.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnKatalogSamochodow.ForeColor = System.Drawing.Color.White;
-            this.btnKatalogSamochodow.Location = new System.Drawing.Point(0, 240);
+            this.btnKatalogSamochodow.Location = new System.Drawing.Point(0, 160);
             this.btnKatalogSamochodow.Name = "btnKatalogSamochodow";
             this.btnKatalogSamochodow.Size = new System.Drawing.Size(222, 80);
             this.btnKatalogSamochodow.TabIndex = 3;
@@ -151,21 +149,6 @@
             this.panelEnd.Name = "panelEnd";
             this.panelEnd.Size = new System.Drawing.Size(222, 80);
             this.panelEnd.TabIndex = 6;
-            // 
-            // btnRejestracja
-            // 
-            this.btnRejestracja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.btnRejestracja.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRejestracja.FlatAppearance.BorderSize = 0;
-            this.btnRejestracja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRejestracja.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRejestracja.ForeColor = System.Drawing.Color.White;
-            this.btnRejestracja.Location = new System.Drawing.Point(0, 160);
-            this.btnRejestracja.Name = "btnRejestracja";
-            this.btnRejestracja.Size = new System.Drawing.Size(222, 80);
-            this.btnRejestracja.TabIndex = 2;
-            this.btnRejestracja.Text = "REJESTRACJA";
-            this.btnRejestracja.UseVisualStyleBackColor = false;
             // 
             // btnLogowanie
             // 
@@ -250,7 +233,6 @@
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panelContent;
-        private System.Windows.Forms.Button btnRejestracja;
         private System.Windows.Forms.Button btnKatalogSamochodow;
         private System.Windows.Forms.Button btnHistoriaWypozyczen;
         private System.Windows.Forms.Button btnDodajUzytkownika;
