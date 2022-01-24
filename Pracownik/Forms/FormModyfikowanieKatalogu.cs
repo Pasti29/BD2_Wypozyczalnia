@@ -73,19 +73,19 @@ namespace Pracownik.Forms
                     SwitchMode();
 
                     // Przypisanie wartości do etykiet
-                    textBoxWorkerID.Text = car[1].ToString();
+                    textBoxWorkerLogin.Text = car[1].ToString();
                     textBoxBrand.Text = car[2].ToString();
                     textBoxModel.Text = car[3].ToString();
-                    checkBoxBorrowed.Checked = (bool)car[4];
-                    textBoxVintage.Text = car[5].ToString();
-                    textBoxAverageConsumption.Text = car[6].ToString();
-                    textBoxMaxSpeed.Text = car[7].ToString();
-                    textBoxEngineCapacity.Text = car[8].ToString();
+                    //checkBoxBorrowed.Checked = (bool)car[4];
+                    textBoxVintage.Text = car[4].ToString();
+                    textBoxAverageConsumption.Text = car[5].ToString();
+                    textBoxMaxSpeed.Text = car[6].ToString();
+                    textBoxEngineCapacity.Text = car[7].ToString();
                     //maskedTextBoxControlDate.Text = ((DateTime)car[9]).ToString("dd-MM-yyyy");
-                    maskedTextBoxControlDate.Text = ((DateTime)car[9]).ToString();
+                    maskedTextBoxControlDate.Text = ((DateTime)car[8]).ToString();
 
                     // Ustawienie obrazu
-                    MemoryStream memoryStream = new MemoryStream((byte[])car[10]);
+                    MemoryStream memoryStream = new MemoryStream((byte[])car[9]);
                     var image = Image.FromStream(memoryStream);
                     pictureBoxAuto.Image = image;
                 }
@@ -113,10 +113,10 @@ namespace Pracownik.Forms
             {
                 _repository.UpdateCar(
                         maskedTextBoxRegistration.Text,
-                        int.Parse(textBoxWorkerID.Text),
+                        textBoxWorkerLogin.Text,
                         textBoxBrand.Text,
                         textBoxModel.Text,
-                        checkBoxBorrowed.Checked,
+                        //checkBoxBorrowed.Checked,
                         int.Parse(textBoxVintage.Text),
                         float.Parse(textBoxAverageConsumption.Text),
                         int.Parse(textBoxMaxSpeed.Text),
@@ -134,10 +134,10 @@ namespace Pracownik.Forms
 
         private void ClearAllData() 
         {
-            textBoxWorkerID.Text = "";
+            textBoxWorkerLogin.Text = "";
             textBoxBrand.Text = "";
             textBoxModel.Text = "";
-            checkBoxBorrowed.Checked = false;
+            //checkBoxBorrowed.Checked = false;
             textBoxVintage.Text = "";
             textBoxAverageConsumption.Text = "";
             textBoxMaxSpeed.Text = "";
@@ -155,28 +155,19 @@ namespace Pracownik.Forms
             int emptyFields = 0;
 
             // Sprawdzanie poprawności ID pracownika
-            if (textBoxWorkerID.Text == string.Empty)
+            if (textBoxWorkerLogin.Text == string.Empty)
             {
                 emptyFields++;
             }
             else    
             {
                 // Sprawdzamy, czy pracownik o danym id istnieje w bazie
-                try
+                string workerLogin = textBoxWorkerLogin.Text;
+                if (_repository.GetWorker(workerLogin) == null)
                 {
-                    int IDpracownika = int.Parse(textBoxWorkerID.Text);
-                    if (_repository.GetWorker(IDpracownika) == null)
-                    {
-                        SetStatusMessage("Wprowadzone ID pracownika nie istnieje!");
-                        mistakes++;
-                    }
-                }
-                catch (FormatException){
-
-                    // Przechwycenie wyjątku - wprowadzenie innej wartości niż int
-                    SetStatusMessage("Wprowadzone ID zawiera niedozwolone znaki!");
+                    SetStatusMessage("Wprowadzone login pracownika nie istnieje!");
                     mistakes++;
-                };
+                }
             }
 
             // Sprawdzenie, czy pole marki i modelu nie jest puste
@@ -345,10 +336,10 @@ namespace Pracownik.Forms
                     {
                         _repository.AddCar(
                             maskedTextBoxRegistration.Text, 
-                            int.Parse(textBoxWorkerID.Text), 
+                            textBoxWorkerLogin.Text, 
                             textBoxBrand.Text, 
                             textBoxModel.Text,
-                            checkBoxBorrowed.Checked,
+                            //checkBoxBorrowed.Checked,
                             int.Parse(textBoxVintage.Text), 
                             float.Parse(textBoxAverageConsumption.Text), 
                             int.Parse(textBoxMaxSpeed.Text), 

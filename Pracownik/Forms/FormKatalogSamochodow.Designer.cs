@@ -41,8 +41,6 @@ namespace Pracownik.Forms
             this.labelAverageConsumption = new System.Windows.Forms.Label();
             this.labelVintageData = new System.Windows.Forms.Label();
             this.labelVintage = new System.Windows.Forms.Label();
-            this.labelBorrowedData = new System.Windows.Forms.Label();
-            this.labelBorrowed = new System.Windows.Forms.Label();
             this.labelModelData = new System.Windows.Forms.Label();
             this.labelModel = new System.Windows.Forms.Label();
             this.labelBrandData = new System.Windows.Forms.Label();
@@ -74,8 +72,6 @@ namespace Pracownik.Forms
             this.panelDescription.Controls.Add(this.labelAverageConsumption);
             this.panelDescription.Controls.Add(this.labelVintageData);
             this.panelDescription.Controls.Add(this.labelVintage);
-            this.panelDescription.Controls.Add(this.labelBorrowedData);
-            this.panelDescription.Controls.Add(this.labelBorrowed);
             this.panelDescription.Controls.Add(this.labelModelData);
             this.panelDescription.Controls.Add(this.labelModel);
             this.panelDescription.Controls.Add(this.labelBrandData);
@@ -97,7 +93,7 @@ namespace Pracownik.Forms
             this.labelControlDateData.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControlDateData.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelControlDateData.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.labelControlDateData.Location = new System.Drawing.Point(0, 458);
+            this.labelControlDateData.Location = new System.Drawing.Point(0, 416);
             this.labelControlDateData.Name = "labelControlDateData";
             this.labelControlDateData.Size = new System.Drawing.Size(268, 20);
             this.labelControlDateData.TabIndex = 36;
@@ -108,7 +104,7 @@ namespace Pracownik.Forms
             this.labelControlDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelControlDate.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControlDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelControlDate.Location = new System.Drawing.Point(0, 436);
+            this.labelControlDate.Location = new System.Drawing.Point(0, 394);
             this.labelControlDate.Name = "labelControlDate";
             this.labelControlDate.Size = new System.Drawing.Size(268, 22);
             this.labelControlDate.TabIndex = 35;
@@ -121,7 +117,7 @@ namespace Pracownik.Forms
             this.labelEngineCapacityData.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelEngineCapacityData.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelEngineCapacityData.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.labelEngineCapacityData.Location = new System.Drawing.Point(0, 416);
+            this.labelEngineCapacityData.Location = new System.Drawing.Point(0, 374);
             this.labelEngineCapacityData.Name = "labelEngineCapacityData";
             this.labelEngineCapacityData.Size = new System.Drawing.Size(268, 20);
             this.labelEngineCapacityData.TabIndex = 34;
@@ -132,7 +128,7 @@ namespace Pracownik.Forms
             this.labelEngineCapacity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelEngineCapacity.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelEngineCapacity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelEngineCapacity.Location = new System.Drawing.Point(0, 394);
+            this.labelEngineCapacity.Location = new System.Drawing.Point(0, 352);
             this.labelEngineCapacity.Name = "labelEngineCapacity";
             this.labelEngineCapacity.Size = new System.Drawing.Size(268, 22);
             this.labelEngineCapacity.TabIndex = 33;
@@ -145,7 +141,7 @@ namespace Pracownik.Forms
             this.labelMaxSpeedData.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelMaxSpeedData.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelMaxSpeedData.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.labelMaxSpeedData.Location = new System.Drawing.Point(0, 374);
+            this.labelMaxSpeedData.Location = new System.Drawing.Point(0, 332);
             this.labelMaxSpeedData.Name = "labelMaxSpeedData";
             this.labelMaxSpeedData.Size = new System.Drawing.Size(268, 20);
             this.labelMaxSpeedData.TabIndex = 32;
@@ -156,7 +152,7 @@ namespace Pracownik.Forms
             this.labelMaxSpeed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelMaxSpeed.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelMaxSpeed.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelMaxSpeed.Location = new System.Drawing.Point(0, 352);
+            this.labelMaxSpeed.Location = new System.Drawing.Point(0, 310);
             this.labelMaxSpeed.Name = "labelMaxSpeed";
             this.labelMaxSpeed.Size = new System.Drawing.Size(268, 22);
             this.labelMaxSpeed.TabIndex = 31;
@@ -169,7 +165,7 @@ namespace Pracownik.Forms
             this.labelAverageConsumptionData.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelAverageConsumptionData.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelAverageConsumptionData.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.labelAverageConsumptionData.Location = new System.Drawing.Point(0, 332);
+            this.labelAverageConsumptionData.Location = new System.Drawing.Point(0, 290);
             this.labelAverageConsumptionData.Name = "labelAverageConsumptionData";
             this.labelAverageConsumptionData.Size = new System.Drawing.Size(268, 20);
             this.labelAverageConsumptionData.TabIndex = 30;
@@ -180,7 +176,7 @@ namespace Pracownik.Forms
             this.labelAverageConsumption.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelAverageConsumption.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelAverageConsumption.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelAverageConsumption.Location = new System.Drawing.Point(0, 310);
+            this.labelAverageConsumption.Location = new System.Drawing.Point(0, 268);
             this.labelAverageConsumption.Name = "labelAverageConsumption";
             this.labelAverageConsumption.Size = new System.Drawing.Size(268, 22);
             this.labelAverageConsumption.TabIndex = 29;
@@ -193,7 +189,7 @@ namespace Pracownik.Forms
             this.labelVintageData.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelVintageData.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelVintageData.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.labelVintageData.Location = new System.Drawing.Point(0, 290);
+            this.labelVintageData.Location = new System.Drawing.Point(0, 248);
             this.labelVintageData.Name = "labelVintageData";
             this.labelVintageData.Size = new System.Drawing.Size(268, 20);
             this.labelVintageData.TabIndex = 28;
@@ -204,36 +200,12 @@ namespace Pracownik.Forms
             this.labelVintage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelVintage.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelVintage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelVintage.Location = new System.Drawing.Point(0, 268);
+            this.labelVintage.Location = new System.Drawing.Point(0, 226);
             this.labelVintage.Name = "labelVintage";
             this.labelVintage.Size = new System.Drawing.Size(268, 22);
             this.labelVintage.TabIndex = 27;
             this.labelVintage.Text = "Rocznik";
             this.labelVintage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelBorrowedData
-            // 
-            this.labelBorrowedData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(143)))), ((int)(((byte)(152)))));
-            this.labelBorrowedData.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelBorrowedData.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelBorrowedData.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.labelBorrowedData.Location = new System.Drawing.Point(0, 248);
-            this.labelBorrowedData.Name = "labelBorrowedData";
-            this.labelBorrowedData.Size = new System.Drawing.Size(268, 20);
-            this.labelBorrowedData.TabIndex = 26;
-            this.labelBorrowedData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelBorrowed
-            // 
-            this.labelBorrowed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelBorrowed.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelBorrowed.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelBorrowed.Location = new System.Drawing.Point(0, 226);
-            this.labelBorrowed.Name = "labelBorrowed";
-            this.labelBorrowed.Size = new System.Drawing.Size(268, 22);
-            this.labelBorrowed.TabIndex = 25;
-            this.labelBorrowed.Text = "Wypożyczony";
-            this.labelBorrowed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelModelData
             // 
@@ -304,7 +276,7 @@ namespace Pracownik.Forms
             this.labelWorkerID.Name = "labelWorkerID";
             this.labelWorkerID.Size = new System.Drawing.Size(268, 22);
             this.labelWorkerID.TabIndex = 19;
-            this.labelWorkerID.Text = "ID Pracownika";
+            this.labelWorkerID.Text = "Imię i nazwisko mechanika";
             this.labelWorkerID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelRegistrationData
@@ -423,8 +395,6 @@ namespace Pracownik.Forms
         private System.Windows.Forms.Label labelAverageConsumption;
         private System.Windows.Forms.Label labelVintageData;
         private System.Windows.Forms.Label labelVintage;
-        private System.Windows.Forms.Label labelBorrowedData;
-        private System.Windows.Forms.Label labelBorrowed;
         private System.Windows.Forms.Label labelModelData;
         private System.Windows.Forms.Label labelModel;
         private System.Windows.Forms.Label labelBrandData;

@@ -52,10 +52,16 @@ namespace Pracownik.Forms
                 return;
             }
 
+            // Wypisanie zalogowano
             LabelConnectionStatus.Visible = true;
             LabelConnectionStatus.ForeColor = Color.Green;
             LabelConnectionStatus.Text = "Zalogowano";
-            IsLogged();
+            // Zablokowanie textbox'ów i przycisku
+            TextBoxUser.Enabled = false;
+            TextBoxPassword.Enabled = false;
+            ButtonLogin.Enabled = false;
+
+            // Odblokowanie przycisków
             pracownikForm.Login();
         }
 

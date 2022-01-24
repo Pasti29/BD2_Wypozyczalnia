@@ -13,32 +13,32 @@ namespace Pracownik.Database
 {
     public class Repository
     {
-        /// <summary>
-        /// Nawiązanie połączenia z naszą bazą danych zefiniowaną w ConnectionString
-        /// </summary>
+        
         private static SqlConnection? connection;
         private static string? userLogin;
-        public static SqlConnection? Connection => connection;
+        //public static SqlConnection? Connection => connection;
 
 
-        public void AddCar(string carID, int workerID, string brand, string model, bool borrowed, int vintage, float averageConsumption, int maxSpeed, int engineCapacity, DateTime controlDate, Image image)
+        public void AddCar(string registrationNumber, string workerLogin, string brand, string model, int vintage, float averageConsumption, int maxSpeed, int engineCapacity, DateTime controlDate, Image image)
         {
+            if (connection != null) 
+            {
+                //connection.Open();
 
-            connection.Open();
-            SqlCommand command = connection.CreateCommand();
+                SqlCommand command = connection.CreateCommand();
 
-            // Konwertowanie obrazu na bajty
-            var convertedImage = new ImageConverter().ConvertTo(image, typeof(Byte[]));
-            command.Parameters.AddWithValue("@image", convertedImage);
-            
-            // Wywołanie procedury dodajSamochod(...)
-            command.CommandText = $"EXEC dodajSamochod '{carID}', '{workerID}', '{brand}', '{model}', '{borrowed}', '{vintage}', '{averageConsumption}', '{maxSpeed}', '{engineCapacity}', '{controlDate.ToString("MM/dd/yyyy")}', @image ";
-            
-            // Wykonanie zapytania
-            command.ExecuteNonQuery();
-            connection.Close();
+                // Konwertowanie obrazu na bajty
+                var convertedImage = new ImageConverter().ConvertTo(image, typeof(Byte[]));
+                command.Parameters.AddWithValue("@image", convertedImage);
 
+                // Wywołanie procedury dodajSamochod(...)
+                command.CommandText = $"EXEC dodajSamochod '{registrationNumber}', '{workerLogin}', '{brand}', '{model}', '{vintage}', '{averageConsumption}', '{maxSpeed}', '{engineCapacity}', '{controlDate.ToString("MM/dd/yyyy")}', @image ";
 
+                // Wykonanie zapytania
+                command.ExecuteNonQuery();
+
+                //connection.Close();
+           }
         }
 
         public static void CloseConnection()
@@ -60,7 +60,7 @@ namespace Pracownik.Database
         public static string? GetCurrentUserRole()
         {
             SqlCommand cmd = new("SELECT * FROM dbo.wyswietlRoleUzytkownika()", connection);
-            SqlDataAdapter adapter = new(cmd);
+            //SqlDataAdapter adapter = new(cmd);
 
             return cmd.ExecuteScalar().ToString();
         }
@@ -85,26 +85,51 @@ namespace Pracownik.Database
             return true;
         }
 
-
-
-        public void UpdateCar(string carID, int workerID, string brand, string model, bool borrowed, int vintage, float averageConsumption, int maxSpeed, int engineCapacity, DateTime controlDate, Image image)
+        public static DataTable GetCarsTable()
         {
+            bool guest = false;
+            if (!IsConnectionOpened())
+            {
+                connection = new(Properties.Resources.GuestString);
+                connection.Open();
+                guest = true;
+            }
 
-            connection.Open();
-            SqlCommand command = connection.CreateCommand();
+            string query = "SELECT * from dbo.wyswietlSamochody()";
 
-            // Konwertowanie obrazu na bajty
-            var convertedImage = new ImageConverter().ConvertTo(image, typeof(Byte[]));
-            command.Parameters.AddWithValue("@image", convertedImage);
-
-            // Wywołanie procedury aktualizujSamochod(...)
-            command.CommandText = $"EXEC aktualizujSamochod '{carID}', '{workerID}', '{brand}', '{model}', '{borrowed}', '{vintage}', '{averageConsumption}', '{maxSpeed}', '{engineCapacity}', '{controlDate}', @image ";
-
-            // Wykonanie zapytania
-            command.ExecuteNonQuery();
-            connection.Close();
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            if (guest)
+            {
+                connection.Close();
+            }
+            return dt;
+        }
 
 
+
+
+
+        public void UpdateCar(string registrationNumber, string workerLogin, string brand, string model, int vintage, float averageConsumption, int maxSpeed, int engineCapacity, DateTime controlDate, Image image)
+        {
+            if (connection != null) {
+
+                //connection.Open();
+                SqlCommand command = connection.CreateCommand();
+
+                // Konwertowanie obrazu na bajty
+                var convertedImage = new ImageConverter().ConvertTo(image, typeof(Byte[]));
+                command.Parameters.AddWithValue("@image", convertedImage);
+
+                // Wywołanie procedury aktualizujSamochod(...)
+                command.CommandText = $"EXEC aktualizujSamochod '{registrationNumber}', '{workerLogin}', '{brand}', '{model}', '{vintage}', '{averageConsumption}', '{maxSpeed}', '{engineCapacity}', '{controlDate}', @image ";
+
+                // Wykonanie zapytania
+                command.ExecuteNonQuery();
+                //connection.Close();
+
+            }
         }
 
         public DataTable GetAllOrders()
@@ -121,26 +146,30 @@ namespace Pracownik.Database
             return table;
         }
 
-        public void DeleteCar(string carID) 
+        public void DeleteCar(string registrationNumber) 
         {
-            // Wywołanie procedury usunSamochod
-            connection.Open();
+            if (connection != null) 
+            {
+                // Wywołanie procedury usunSamochod
+                //connection.Open();
 
-            string query = $"EXEC usunSamochod '{carID}'";
-            SqlCommand command = new SqlCommand(query, connection);
+                string query = $"EXEC usunSamochod '{registrationNumber}'";
+                SqlCommand command = new SqlCommand(query, connection);
 
-            // Wywołanie zapytania
-            command.ExecuteNonQuery();
-            connection.Close();
+                // Wywołanie zapytania
+                command.ExecuteNonQuery();
+                //connection.Close();
+            }
+            
         }
 
 
 
-        public DataRow? GetCar(string carID) 
+        public DataRow? GetCar(string registrationNumber) 
         {
-            //wywołanie funkcji wyszukajSamochod(IDsamochodu)
+            //wywołanie funkcji wyszukajSamochod(NrRejestracji)
             string query = "SELECT * " +
-                           $"FROM wyszukajSamochod('{carID}');";
+                           $"FROM dbo.wyszukajSamochod('{registrationNumber}');";
 
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             DataTable table = new DataTable();
@@ -158,11 +187,11 @@ namespace Pracownik.Database
 
 
 
-        public DataRow? GetWorker(int IDpracownika) 
+        public DataRow? GetWorker(string workerLogin) 
         {
             // Wywołani funkcji tabelarycznej wyszukajPracownika(IDpracownika)
             string query = "SELECT * " +
-                           $"FROM dbo.wyszukajPracownika('{IDpracownika}');";
+                           $"FROM dbo.wyszukajPracownika('{workerLogin}');";
 
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             DataTable table = new DataTable();
@@ -176,28 +205,6 @@ namespace Pracownik.Database
             {
                 return null;
             }
-        }
-
-
-        public static DataTable GetCarsTable()
-        {
-            if (!IsConnectionOpened())
-            {
-                connection = new(Properties.Resources.GuestString);
-                connection.Open();
-            }
-
-            string query = "SELECT * from dbo.wyswietlSamochody()";
-
-            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            if (connection.WorkstationId.Equals("guest"))
-            {
-                connection.Close();
-            }
-
-            return dt;
         }
     }
 }

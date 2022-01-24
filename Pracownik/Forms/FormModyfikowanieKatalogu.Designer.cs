@@ -40,17 +40,16 @@ namespace Pracownik.Forms
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.textBoxWorkerID = new System.Windows.Forms.TextBox();
+            this.textBoxWorkerLogin = new System.Windows.Forms.TextBox();
             this.textBoxBrand = new System.Windows.Forms.TextBox();
             this.textBoxModel = new System.Windows.Forms.TextBox();
             this.textBoxVintage = new System.Windows.Forms.TextBox();
             this.textBoxAverageConsumption = new System.Windows.Forms.TextBox();
             this.textBoxMaxSpeed = new System.Windows.Forms.TextBox();
             this.textBoxEngineCapacity = new System.Windows.Forms.TextBox();
-            this.labelWorkerID = new System.Windows.Forms.Label();
+            this.labelWorkerLogin = new System.Windows.Forms.Label();
             this.labelBrand = new System.Windows.Forms.Label();
             this.labelModel = new System.Windows.Forms.Label();
-            this.labelBorrowed = new System.Windows.Forms.Label();
             this.labelVintage = new System.Windows.Forms.Label();
             this.labelAverageConsumption = new System.Windows.Forms.Label();
             this.labelMaxSpeed = new System.Windows.Forms.Label();
@@ -58,7 +57,6 @@ namespace Pracownik.Forms
             this.labelControlDate = new System.Windows.Forms.Label();
             this.pictureBoxAuto = new System.Windows.Forms.PictureBox();
             this.btnSelectPhoto = new System.Windows.Forms.Button();
-            this.checkBoxBorrowed = new System.Windows.Forms.CheckBox();
             this.maskedTextBoxControlDate = new System.Windows.Forms.MaskedTextBox();
             this.panelModifyFooter.SuspendLayout();
             this.panelModifySearch.SuspendLayout();
@@ -219,15 +217,15 @@ namespace Pracownik.Forms
             this.btnUpdate.Visible = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // textBoxWorkerID
+            // textBoxWorkerLogin
             // 
-            this.textBoxWorkerID.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxWorkerID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxWorkerID.Location = new System.Drawing.Point(241, 203);
-            this.textBoxWorkerID.Name = "textBoxWorkerID";
-            this.textBoxWorkerID.Size = new System.Drawing.Size(209, 27);
-            this.textBoxWorkerID.TabIndex = 14;
-            this.textBoxWorkerID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxWorkerLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxWorkerLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxWorkerLogin.Location = new System.Drawing.Point(241, 203);
+            this.textBoxWorkerLogin.Name = "textBoxWorkerLogin";
+            this.textBoxWorkerLogin.Size = new System.Drawing.Size(209, 27);
+            this.textBoxWorkerLogin.TabIndex = 14;
+            this.textBoxWorkerLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxBrand
             // 
@@ -253,7 +251,7 @@ namespace Pracownik.Forms
             // 
             this.textBoxVintage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxVintage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxVintage.Location = new System.Drawing.Point(241, 335);
+            this.textBoxVintage.Location = new System.Drawing.Point(241, 302);
             this.textBoxVintage.Name = "textBoxVintage";
             this.textBoxVintage.Size = new System.Drawing.Size(209, 27);
             this.textBoxVintage.TabIndex = 18;
@@ -263,7 +261,7 @@ namespace Pracownik.Forms
             // 
             this.textBoxAverageConsumption.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxAverageConsumption.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxAverageConsumption.Location = new System.Drawing.Point(241, 368);
+            this.textBoxAverageConsumption.Location = new System.Drawing.Point(241, 335);
             this.textBoxAverageConsumption.Name = "textBoxAverageConsumption";
             this.textBoxAverageConsumption.Size = new System.Drawing.Size(209, 27);
             this.textBoxAverageConsumption.TabIndex = 19;
@@ -273,7 +271,7 @@ namespace Pracownik.Forms
             // 
             this.textBoxMaxSpeed.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxMaxSpeed.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxMaxSpeed.Location = new System.Drawing.Point(241, 401);
+            this.textBoxMaxSpeed.Location = new System.Drawing.Point(241, 368);
             this.textBoxMaxSpeed.Name = "textBoxMaxSpeed";
             this.textBoxMaxSpeed.Size = new System.Drawing.Size(209, 27);
             this.textBoxMaxSpeed.TabIndex = 20;
@@ -283,23 +281,23 @@ namespace Pracownik.Forms
             // 
             this.textBoxEngineCapacity.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxEngineCapacity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxEngineCapacity.Location = new System.Drawing.Point(241, 434);
+            this.textBoxEngineCapacity.Location = new System.Drawing.Point(241, 401);
             this.textBoxEngineCapacity.Name = "textBoxEngineCapacity";
             this.textBoxEngineCapacity.Size = new System.Drawing.Size(209, 27);
             this.textBoxEngineCapacity.TabIndex = 21;
             this.textBoxEngineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // labelWorkerID
+            // labelWorkerLogin
             // 
-            this.labelWorkerID.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelWorkerID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelWorkerID.ForeColor = System.Drawing.Color.Black;
-            this.labelWorkerID.Location = new System.Drawing.Point(103, 203);
-            this.labelWorkerID.Name = "labelWorkerID";
-            this.labelWorkerID.Size = new System.Drawing.Size(130, 27);
-            this.labelWorkerID.TabIndex = 23;
-            this.labelWorkerID.Text = "ID Pracownika:";
-            this.labelWorkerID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelWorkerLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelWorkerLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelWorkerLogin.ForeColor = System.Drawing.Color.Black;
+            this.labelWorkerLogin.Location = new System.Drawing.Point(76, 203);
+            this.labelWorkerLogin.Name = "labelWorkerLogin";
+            this.labelWorkerLogin.Size = new System.Drawing.Size(157, 27);
+            this.labelWorkerLogin.TabIndex = 23;
+            this.labelWorkerLogin.Text = "Login pracownika:";
+            this.labelWorkerLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelBrand
             // 
@@ -325,24 +323,12 @@ namespace Pracownik.Forms
             this.labelModel.Text = "Model:";
             this.labelModel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // labelBorrowed
-            // 
-            this.labelBorrowed.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelBorrowed.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelBorrowed.ForeColor = System.Drawing.Color.Black;
-            this.labelBorrowed.Location = new System.Drawing.Point(103, 302);
-            this.labelBorrowed.Name = "labelBorrowed";
-            this.labelBorrowed.Size = new System.Drawing.Size(130, 27);
-            this.labelBorrowed.TabIndex = 26;
-            this.labelBorrowed.Text = "Wypożyczony:";
-            this.labelBorrowed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // labelVintage
             // 
             this.labelVintage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelVintage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelVintage.ForeColor = System.Drawing.Color.Black;
-            this.labelVintage.Location = new System.Drawing.Point(156, 335);
+            this.labelVintage.Location = new System.Drawing.Point(156, 302);
             this.labelVintage.Name = "labelVintage";
             this.labelVintage.Size = new System.Drawing.Size(78, 27);
             this.labelVintage.TabIndex = 27;
@@ -354,7 +340,7 @@ namespace Pracownik.Forms
             this.labelAverageConsumption.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelAverageConsumption.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelAverageConsumption.ForeColor = System.Drawing.Color.Black;
-            this.labelAverageConsumption.Location = new System.Drawing.Point(49, 368);
+            this.labelAverageConsumption.Location = new System.Drawing.Point(49, 335);
             this.labelAverageConsumption.Name = "labelAverageConsumption";
             this.labelAverageConsumption.Size = new System.Drawing.Size(184, 27);
             this.labelAverageConsumption.TabIndex = 28;
@@ -366,7 +352,7 @@ namespace Pracownik.Forms
             this.labelMaxSpeed.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelMaxSpeed.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelMaxSpeed.ForeColor = System.Drawing.Color.Black;
-            this.labelMaxSpeed.Location = new System.Drawing.Point(29, 401);
+            this.labelMaxSpeed.Location = new System.Drawing.Point(29, 368);
             this.labelMaxSpeed.Name = "labelMaxSpeed";
             this.labelMaxSpeed.Size = new System.Drawing.Size(205, 27);
             this.labelMaxSpeed.TabIndex = 29;
@@ -378,7 +364,7 @@ namespace Pracownik.Forms
             this.labelEngineCapacity.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelEngineCapacity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelEngineCapacity.ForeColor = System.Drawing.Color.Black;
-            this.labelEngineCapacity.Location = new System.Drawing.Point(49, 434);
+            this.labelEngineCapacity.Location = new System.Drawing.Point(49, 401);
             this.labelEngineCapacity.Name = "labelEngineCapacity";
             this.labelEngineCapacity.Size = new System.Drawing.Size(184, 27);
             this.labelEngineCapacity.TabIndex = 30;
@@ -390,7 +376,7 @@ namespace Pracownik.Forms
             this.labelControlDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelControlDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelControlDate.ForeColor = System.Drawing.Color.Black;
-            this.labelControlDate.Location = new System.Drawing.Point(92, 467);
+            this.labelControlDate.Location = new System.Drawing.Point(92, 434);
             this.labelControlDate.Name = "labelControlDate";
             this.labelControlDate.Size = new System.Drawing.Size(142, 27);
             this.labelControlDate.TabIndex = 31;
@@ -403,7 +389,7 @@ namespace Pracownik.Forms
             this.pictureBoxAuto.BackColor = System.Drawing.Color.White;
             this.pictureBoxAuto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBoxAuto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxAuto.Location = new System.Drawing.Point(518, 212);
+            this.pictureBoxAuto.Location = new System.Drawing.Point(519, 210);
             this.pictureBoxAuto.Name = "pictureBoxAuto";
             this.pictureBoxAuto.Size = new System.Drawing.Size(384, 216);
             this.pictureBoxAuto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -418,7 +404,7 @@ namespace Pracownik.Forms
             this.btnSelectPhoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelectPhoto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSelectPhoto.ForeColor = System.Drawing.Color.White;
-            this.btnSelectPhoto.Location = new System.Drawing.Point(518, 434);
+            this.btnSelectPhoto.Location = new System.Drawing.Point(519, 432);
             this.btnSelectPhoto.Name = "btnSelectPhoto";
             this.btnSelectPhoto.Size = new System.Drawing.Size(384, 29);
             this.btnSelectPhoto.TabIndex = 0;
@@ -426,21 +412,11 @@ namespace Pracownik.Forms
             this.btnSelectPhoto.UseVisualStyleBackColor = false;
             this.btnSelectPhoto.Click += new System.EventHandler(this.btnSelectPhoto_Click);
             // 
-            // checkBoxBorrowed
-            // 
-            this.checkBoxBorrowed.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.checkBoxBorrowed.AutoSize = true;
-            this.checkBoxBorrowed.Location = new System.Drawing.Point(337, 308);
-            this.checkBoxBorrowed.Name = "checkBoxBorrowed";
-            this.checkBoxBorrowed.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxBorrowed.TabIndex = 32;
-            this.checkBoxBorrowed.UseVisualStyleBackColor = true;
-            // 
             // maskedTextBoxControlDate
             // 
             this.maskedTextBoxControlDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.maskedTextBoxControlDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxControlDate.Location = new System.Drawing.Point(241, 467);
+            this.maskedTextBoxControlDate.Location = new System.Drawing.Point(241, 434);
             this.maskedTextBoxControlDate.Mask = "00/00/0000";
             this.maskedTextBoxControlDate.Name = "maskedTextBoxControlDate";
             this.maskedTextBoxControlDate.Size = new System.Drawing.Size(209, 27);
@@ -454,18 +430,17 @@ namespace Pracownik.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 589);
             this.Controls.Add(this.maskedTextBoxControlDate);
-            this.Controls.Add(this.checkBoxBorrowed);
             this.Controls.Add(this.pictureBoxAuto);
             this.Controls.Add(this.btnSelectPhoto);
             this.Controls.Add(this.labelControlDate);
-            this.Controls.Add(this.textBoxWorkerID);
+            this.Controls.Add(this.textBoxWorkerLogin);
             this.Controls.Add(this.labelEngineCapacity);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.textBoxBrand);
             this.Controls.Add(this.panelModifyFooter);
             this.Controls.Add(this.labelMaxSpeed);
             this.Controls.Add(this.textBoxModel);
-            this.Controls.Add(this.labelWorkerID);
+            this.Controls.Add(this.labelWorkerLogin);
             this.Controls.Add(this.labelAverageConsumption);
             this.Controls.Add(this.textBoxEngineCapacity);
             this.Controls.Add(this.labelBrand);
@@ -473,7 +448,6 @@ namespace Pracownik.Forms
             this.Controls.Add(this.textBoxMaxSpeed);
             this.Controls.Add(this.textBoxVintage);
             this.Controls.Add(this.labelModel);
-            this.Controls.Add(this.labelBorrowed);
             this.Controls.Add(this.textBoxAverageConsumption);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -500,17 +474,16 @@ namespace Pracownik.Forms
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.TextBox textBoxWorkerID;
+        private System.Windows.Forms.TextBox textBoxWorkerLogin;
         private System.Windows.Forms.TextBox textBoxBrand;
         private System.Windows.Forms.TextBox textBoxModel;
         private System.Windows.Forms.TextBox textBoxVintage;
         private System.Windows.Forms.TextBox textBoxAverageConsumption;
         private System.Windows.Forms.TextBox textBoxMaxSpeed;
         private System.Windows.Forms.TextBox textBoxEngineCapacity;
-        private System.Windows.Forms.Label labelWorkerID;
+        private System.Windows.Forms.Label labelWorkerLogin;
         private System.Windows.Forms.Label labelBrand;
         private System.Windows.Forms.Label labelModel;
-        private System.Windows.Forms.Label labelBorrowed;
         private System.Windows.Forms.Label labelVintage;
         private System.Windows.Forms.Label labelAverageConsumption;
         private System.Windows.Forms.Label labelMaxSpeed;
@@ -518,7 +491,6 @@ namespace Pracownik.Forms
         private System.Windows.Forms.Label labelControlDate;
         private System.Windows.Forms.Button btnSelectPhoto;
         private System.Windows.Forms.PictureBox pictureBoxAuto;
-        private System.Windows.Forms.CheckBox checkBoxBorrowed;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxControlDate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxRegistration;

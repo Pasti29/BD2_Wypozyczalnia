@@ -28,8 +28,8 @@ namespace Pracownik.Forms
 
             // Nadanie nazw kolumną
             dataGridViewOrders.Columns["IDzamowienia"].HeaderText = "ID Zamówienia";
-            dataGridViewOrders.Columns["IDklienta"].HeaderText = "ID Klienta";
-            dataGridViewOrders.Columns["IDsamochodu"].HeaderText = "Rejestracja samochodu";
+            dataGridViewOrders.Columns["LoginKlienta"].HeaderText = "Login klienta";
+            dataGridViewOrders.Columns["NrRejestracyjny"].HeaderText = "Rejestracja samochodu";
             dataGridViewOrders.Columns["DataWypozyczenia"].HeaderText = "Data wypożyczenia";
             dataGridViewOrders.Columns["DataOddania"].HeaderText = "Data oddania";
             dataGridViewOrders.Columns["Oplata"].HeaderText = "Naliczona opłata";

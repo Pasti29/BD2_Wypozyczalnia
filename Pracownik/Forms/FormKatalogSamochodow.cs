@@ -69,12 +69,12 @@ namespace Pracownik.Forms
                 labelWorkerIDData.Text = selectedRow[1].ToString();
                 labelBrandData.Text = selectedRow[2].ToString();
                 labelModelData.Text = selectedRow[3].ToString();
-                labelBorrowedData.Text = selectedRow[4].ToString();
-                labelVintageData.Text = selectedRow[5].ToString();
-                labelAverageConsumptionData.Text = selectedRow[6].ToString();
-                labelMaxSpeedData.Text = selectedRow[7].ToString();
-                labelEngineCapacityData.Text = selectedRow[8].ToString();
-                labelControlDateData.Text = ((DateTime)selectedRow[9]).ToString("dd.MM.yyyy");
+                //labelBorrowedData.Text = selectedRow[4].ToString();
+                labelVintageData.Text = selectedRow[4].ToString();
+                labelAverageConsumptionData.Text = selectedRow[5].ToString();
+                labelMaxSpeedData.Text = selectedRow[6].ToString();
+                labelEngineCapacityData.Text = selectedRow[7].ToString();
+                labelControlDateData.Text = ((DateTime)selectedRow[8]).ToString("dd.MM.yyyy");
 
             }
             else if (listViewCars.SelectedItems.Count == 0) 
@@ -84,7 +84,7 @@ namespace Pracownik.Forms
                 labelWorkerIDData.Text = "";
                 labelBrandData.Text = "";
                 labelModelData.Text = "";
-                labelBorrowedData.Text = "";
+                //labelBorrowedData.Text = "";
                 labelVintageData.Text = "";
                 labelAverageConsumptionData.Text = "";
                 labelMaxSpeedData.Text = "";

@@ -35,7 +35,6 @@ namespace Pracownik
             InitializeComponent();
 
             // Na starcie programu będzie wybrana zakładka logowania
-            DisableButtons();
             OpenChildForm(new FormLogin(this), btnLogowanie);
             
         }
@@ -136,7 +135,7 @@ namespace Pracownik
             // gdy już wcześniej wybraliśmy daną zakładkę) to zakładki nie zmieniają swojego wyglądu i właściwości - my jednak chcemy wymusić
             // ich ponowne wygenerowanie
             _currentPressedButton = null;
-            OpenChildForm(new FormLogin(this), btnLogowanie);
+            ActiveButton(btnLogowanie);
         }
 
         private void btnLogowanie_Click(object sender, EventArgs e)
@@ -158,7 +157,7 @@ namespace Pracownik
             // Obsłużenie wyniku
             if (result == DialogResult.Yes)
             {
-                // Wylogowanie
+                // Wylogowanie - zablokowanie przycisków
                 _isLogged = false;
                 Repository.CloseConnection();
                 // Przejście do zakładki logowania
