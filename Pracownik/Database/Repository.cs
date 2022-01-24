@@ -16,14 +16,16 @@ namespace Pracownik.Database
         /// <summary>
         /// Nawiązanie połączenia z naszą bazą danych zefiniowaną w ConnectionString
         /// </summary>
-        private readonly SqlConnection _connection = new SqlConnection(Properties.Resources.ConnectionString);
+        private static SqlConnection? connection;
+        private static string? userLogin;
+        public static SqlConnection? Connection => connection;
 
 
         public void AddCar(string carID, int workerID, string brand, string model, bool borrowed, int vintage, float averageConsumption, int maxSpeed, int engineCapacity, DateTime controlDate, Image image)
         {
 
-            _connection.Open();
-            SqlCommand command = _connection.CreateCommand();
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
 
             // Konwertowanie obrazu na bajty
             var convertedImage = new ImageConverter().ConvertTo(image, typeof(Byte[]));
@@ -34,9 +36,53 @@ namespace Pracownik.Database
             
             // Wykonanie zapytania
             command.ExecuteNonQuery();
-            _connection.Close();
+            connection.Close();
 
 
+        }
+
+        public static void CloseConnection()
+        {
+            connection?.Close();
+            connection = null;
+            userLogin = null;
+        }
+
+        public static bool IsConnectionOpened()
+        {
+            if (connection != null && connection.State == ConnectionState.Open)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static string? GetCurrentUserRole()
+        {
+            SqlCommand cmd = new("SELECT * FROM dbo.wyswietlRoleUzytkownika()", connection);
+            SqlDataAdapter adapter = new(cmd);
+
+            return cmd.ExecuteScalar().ToString();
+        }
+
+        public static bool OpenConnection(string user, string password)
+        {
+            SqlConnectionStringBuilder builder = new(Properties.Resources.ConnectionString)
+            {
+                UserID = user,
+                Password = password
+            };
+            connection = new(builder.ConnectionString);
+            try
+            {
+                connection.Open();
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+            userLogin = user;
+            return true;
         }
 
 
@@ -44,8 +90,8 @@ namespace Pracownik.Database
         public void UpdateCar(string carID, int workerID, string brand, string model, bool borrowed, int vintage, float averageConsumption, int maxSpeed, int engineCapacity, DateTime controlDate, Image image)
         {
 
-            _connection.Open();
-            SqlCommand command = _connection.CreateCommand();
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
 
             // Konwertowanie obrazu na bajty
             var convertedImage = new ImageConverter().ConvertTo(image, typeof(Byte[]));
@@ -56,7 +102,7 @@ namespace Pracownik.Database
 
             // Wykonanie zapytania
             command.ExecuteNonQuery();
-            _connection.Close();
+            connection.Close();
 
 
         }
@@ -66,14 +112,14 @@ namespace Pracownik.Database
         public void DeleteCar(string carID) 
         {
             // Wywołanie procedury usunSamochod
-            _connection.Open();
+            connection.Open();
 
             string query = $"EXEC usunSamochod '{carID}'";
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand command = new SqlCommand(query, connection);
 
             // Wywołanie zapytania
             command.ExecuteNonQuery();
-            _connection.Close();
+            connection.Close();
         }
 
 
@@ -84,7 +130,7 @@ namespace Pracownik.Database
             string query = "SELECT * " +
                            $"FROM Samochody WHERE  IDsamochodu = '{carID}';";
 
-            SqlDataAdapter adapter = new SqlDataAdapter(query, _connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             DataTable table = new DataTable();
             adapter.Fill(table);
 
@@ -106,7 +152,7 @@ namespace Pracownik.Database
             string query = "SELECT * " +
                            $"FROM dbo.wyszukajPracownika('{IDpracownika}');";
 
-            SqlDataAdapter adapter = new SqlDataAdapter(query, _connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             DataTable table = new DataTable();
             adapter.Fill(table);
 
@@ -121,18 +167,25 @@ namespace Pracownik.Database
         }
 
 
-        public DataTable GetCarsTable() {
+        public static DataTable GetCarsTable()
+        {
+            if (!IsConnectionOpened())
+            {
+                connection = new(Properties.Resources.GuestString);
+                connection.Open();
+            }
 
-            //utworzenie zapytania
-            string query = "SELECT * " +
-                           "FROM Samochody ;";
+            string query = "SELECT * from dbo.wyswietlSamochody()";
 
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            if (connection.WorkstationId.Equals("guest"))
+            {
+                connection.Close();
+            }
 
-            SqlDataAdapter adapter = new SqlDataAdapter(query, _connection);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-
-            return table;
+            return dt;
         }
     }
 }
