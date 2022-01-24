@@ -1,28 +1,18 @@
-﻿using System;
+﻿using Klient.Database;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Klient.Database;
 
 namespace Klient.Forms
 {
     public partial class FormLogin : Form
     {
-
         private readonly KlientForm klientForm;
 
         public FormLogin(KlientForm klientForm)
         {
             this.klientForm = klientForm;
             InitializeComponent();
-        }
-
-        private void IsLogged()
-        {
-            LabelLogged.Visible = true;
-            LabelLogged.Text = "Jesteś już zalogowany";
-            TextBoxUser.Enabled = false;
-            TextBoxPassword.Enabled = false;
-            ButtonLogin.Enabled = false;
         }
 
         private void ButtonLogin_Click(object sender, EventArgs e)
@@ -78,12 +68,20 @@ namespace Klient.Forms
             klientForm.ButtonLogout_Visible(true);
         }
 
-        private void TextBoxUser_TextChanged(object sender, EventArgs e)
+        private void IsLogged()
+        {
+            LabelLogged.Visible = true;
+            LabelLogged.Text = "Jesteś już zalogowany";
+            TextBoxUser.Enabled = false;
+            TextBoxPassword.Enabled = false;
+            ButtonLogin.Enabled = false;
+        }
+        private void TextBoxPassword_TextChanged(object sender, EventArgs e)
         {
             LabelConnectionStatus.Visible = false;
         }
 
-        private void TextBoxPassword_TextChanged(object sender, EventArgs e)
+        private void TextBoxUser_TextChanged(object sender, EventArgs e)
         {
             LabelConnectionStatus.Visible = false;
         }
