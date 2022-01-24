@@ -181,15 +181,13 @@ namespace Pracownik
 
         private void btnDodajUzytkownika_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDodajUzytkownika(), sender);
+            OpenChildForm(new FormWeryfikacjaKilentow(), sender);
         }
 
         private void btnHistoriaWypozyczen_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormHistoriaWypozyczen(), sender);
         }
-
-        
     }
 
      

@@ -18,13 +18,6 @@ namespace Pracownik.Forms
     public partial class FormModyfikowanieKatalogu : Form
     {
 
-
-        /// <summary>
-        /// Wskaźnik na instancję klasy Repository
-        /// </summary>
-        private readonly Repository _repository = new Repository();
-
-
         public FormModyfikowanieKatalogu()
         {
             InitializeComponent();
@@ -60,7 +53,7 @@ namespace Pracownik.Forms
         {
             if (maskedTextBoxRegistration.MaskCompleted) {
 
-                DataRow? car = _repository.GetCar(maskedTextBoxRegistration.Text);    
+                DataRow? car = Repository.GetCar(maskedTextBoxRegistration.Text);    
 
                 if (car == null)
                 {
@@ -111,7 +104,7 @@ namespace Pracownik.Forms
         {
             if (CheckDataCorrectness())
             {
-                _repository.UpdateCar(
+                Repository.UpdateCar(
                         maskedTextBoxRegistration.Text,
                         textBoxWorkerLogin.Text,
                         textBoxBrand.Text,
@@ -163,7 +156,7 @@ namespace Pracownik.Forms
             {
                 // Sprawdzamy, czy pracownik o danym id istnieje w bazie
                 string workerLogin = textBoxWorkerLogin.Text;
-                if (_repository.GetWorker(workerLogin) == null)
+                if (Repository.GetWorker(workerLogin) == null)
                 {
                     SetStatusMessage("Wprowadzone login pracownika nie istnieje!");
                     mistakes++;
@@ -326,7 +319,7 @@ namespace Pracownik.Forms
         {
             if (maskedTextBoxRegistration.MaskCompleted)
             {
-                if (_repository.GetCar(maskedTextBoxRegistration.Text) != null)
+                if (Repository.GetCar(maskedTextBoxRegistration.Text) != null)
                 {
                     FailureMessage("Auto o danej rejestracji już istnieje!");
                 }
@@ -334,7 +327,7 @@ namespace Pracownik.Forms
                 {
                     if (CheckDataCorrectness())
                     {
-                        _repository.AddCar(
+                        Repository.AddCar(
                             maskedTextBoxRegistration.Text, 
                             textBoxWorkerLogin.Text, 
                             textBoxBrand.Text, 
@@ -384,7 +377,7 @@ namespace Pracownik.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            _repository.DeleteCar(maskedTextBoxRegistration.Text);
+            Repository.DeleteCar(maskedTextBoxRegistration.Text);
             SwitchMode();
             ClearAllData();
             SuccessMessage("Pomyślnie usunięto!");

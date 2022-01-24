@@ -57,7 +57,7 @@ namespace Pracownik.Forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewOrders.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewOrders.Location = new System.Drawing.Point(232, 87);
+            this.dataGridViewOrders.Location = new System.Drawing.Point(212, 87);
             this.dataGridViewOrders.Name = "dataGridViewOrders";
             this.dataGridViewOrders.ReadOnly = true;
             this.dataGridViewOrders.RowHeadersWidth = 51;

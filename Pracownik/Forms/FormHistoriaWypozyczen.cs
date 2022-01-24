@@ -13,18 +13,11 @@ namespace Pracownik.Forms
 {
     public partial class FormHistoriaWypozyczen : Form
     {
-
-        /// <summary>
-        /// Wskaźnik na instancję klasy Repository
-        /// </summary>
-        private readonly Repository _repository = new Repository();
-
-
         public FormHistoriaWypozyczen()
         {
             InitializeComponent();
             // Załadowanie danych do DataGridView
-            dataGridViewOrders.DataSource = _repository.GetAllOrders();
+            dataGridViewOrders.DataSource = Repository.GetAllOrders();
 
             // Nadanie nazw kolumną
             dataGridViewOrders.Columns["IDzamowienia"].HeaderText = "ID Zamówienia";

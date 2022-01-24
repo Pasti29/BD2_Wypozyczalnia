@@ -16,9 +16,6 @@ namespace Pracownik.Forms
     public partial class FormKatalogSamochodow : Form
     {
 
-        /// <summary>
-        /// Wskaźnik na instancję klasy Repository
-        /// </summary>
         private readonly DataTable _carsDataTable;
 
 

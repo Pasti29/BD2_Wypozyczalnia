@@ -1,7 +1,7 @@
 ﻿
 namespace Pracownik.Forms
 {
-    partial class FormDodajUzytkownika
+    partial class FormWeryfikacjaKilentow
     {
         /// <summary>
         /// Required designer variable.
@@ -29,32 +29,77 @@ namespace Pracownik.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
+            this.btnReject = new System.Windows.Forms.Button();
+            this.bntConfirm = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // dataGridViewUsers
             // 
-            this.button1.Location = new System.Drawing.Point(288, 153);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 86);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Dodaj użytkownika";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dataGridViewUsers.AllowUserToAddRows = false;
+            this.dataGridViewUsers.AllowUserToDeleteRows = false;
+            this.dataGridViewUsers.AllowUserToResizeColumns = false;
+            this.dataGridViewUsers.AllowUserToResizeRows = false;
+            this.dataGridViewUsers.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsers.Location = new System.Drawing.Point(188, 100);
+            this.dataGridViewUsers.MultiSelect = false;
+            this.dataGridViewUsers.Name = "dataGridViewUsers";
+            this.dataGridViewUsers.ReadOnly = true;
+            this.dataGridViewUsers.RowHeadersWidth = 51;
+            this.dataGridViewUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridViewUsers.RowTemplate.Height = 29;
+            this.dataGridViewUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewUsers.Size = new System.Drawing.Size(677, 327);
+            this.dataGridViewUsers.TabIndex = 3;
             // 
-            // FormDodajUzytkownika
+            // btnReject
+            // 
+            this.btnReject.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnReject.BackColor = System.Drawing.Color.LightCoral;
+            this.btnReject.FlatAppearance.BorderSize = 0;
+            this.btnReject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReject.Location = new System.Drawing.Point(538, 449);
+            this.btnReject.Name = "btnReject";
+            this.btnReject.Size = new System.Drawing.Size(161, 38);
+            this.btnReject.TabIndex = 1;
+            this.btnReject.Text = "Odrzuć";
+            this.btnReject.UseVisualStyleBackColor = false;
+            this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
+            // 
+            // bntConfirm
+            // 
+            this.bntConfirm.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bntConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(205)))), ((int)(((byte)(189)))));
+            this.bntConfirm.FlatAppearance.BorderSize = 0;
+            this.bntConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntConfirm.Location = new System.Drawing.Point(371, 449);
+            this.bntConfirm.Name = "bntConfirm";
+            this.bntConfirm.Size = new System.Drawing.Size(161, 38);
+            this.bntConfirm.TabIndex = 0;
+            this.bntConfirm.Text = "Potwierdź";
+            this.bntConfirm.UseVisualStyleBackColor = false;
+            this.bntConfirm.Click += new System.EventHandler(this.bntConfirm_Click);
+            // 
+            // FormWeryfikacjaKilentow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Name = "FormDodajUzytkownika";
-            this.Text = "DODAJ UŻYTKOWNIKA";
+            this.ClientSize = new System.Drawing.Size(1074, 551);
+            this.Controls.Add(this.bntConfirm);
+            this.Controls.Add(this.dataGridViewUsers);
+            this.Controls.Add(this.btnReject);
+            this.Name = "FormWeryfikacjaKilentow";
+            this.Text = "WERYFIKACJA KLIENTÓW";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridViewUsers;
+        private System.Windows.Forms.Button btnReject;
+        private System.Windows.Forms.Button bntConfirm;
     }
 }

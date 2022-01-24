@@ -19,7 +19,7 @@ namespace Pracownik.Database
         //public static SqlConnection? Connection => connection;
 
 
-        public void AddCar(string registrationNumber, string workerLogin, string brand, string model, int vintage, float averageConsumption, int maxSpeed, int engineCapacity, DateTime controlDate, Image image)
+        public static void AddCar(string registrationNumber, string workerLogin, string brand, string model, int vintage, float averageConsumption, int maxSpeed, int engineCapacity, DateTime controlDate, Image image)
         {
             if (connection != null) 
             {
@@ -108,10 +108,46 @@ namespace Pracownik.Database
         }
 
 
+        public static DataTable GetClientsToVerify()
+        {
+            //utworzenie zapytania wywołującego funkcję wyswietlHistorieZamowien
+            string query = "SELECT * " +
+                           "FROM wyswietlNiezweryfikowanych();";
 
 
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
 
-        public void UpdateCar(string registrationNumber, string workerLogin, string brand, string model, int vintage, float averageConsumption, int maxSpeed, int engineCapacity, DateTime controlDate, Image image)
+            return table;
+        }
+
+        public static void VerifyClient(string login) 
+        {
+            if (connection != null)
+            {
+                string query = $"EXEC zweryfikujKlienta '{login}'";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // Wywołanie zapytania
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void RejectClient(string login)
+        {
+            if (connection != null)
+            {
+                string query = $"EXEC usunKlienta '{login}'";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // Wywołanie zapytania
+                command.ExecuteNonQuery();
+            }
+        }
+
+
+        public static void UpdateCar(string registrationNumber, string workerLogin, string brand, string model, int vintage, float averageConsumption, int maxSpeed, int engineCapacity, DateTime controlDate, Image image)
         {
             if (connection != null) {
 
@@ -132,7 +168,7 @@ namespace Pracownik.Database
             }
         }
 
-        public DataTable GetAllOrders()
+        public static DataTable GetAllOrders()
         {
             //utworzenie zapytania wywołującego funkcję wyswietlHistorieZamowien
             string query = "SELECT * " +
@@ -146,7 +182,7 @@ namespace Pracownik.Database
             return table;
         }
 
-        public void DeleteCar(string registrationNumber) 
+        public static void DeleteCar(string registrationNumber) 
         {
             if (connection != null) 
             {
@@ -165,7 +201,7 @@ namespace Pracownik.Database
 
 
 
-        public DataRow? GetCar(string registrationNumber) 
+        public static DataRow? GetCar(string registrationNumber) 
         {
             //wywołanie funkcji wyszukajSamochod(NrRejestracji)
             string query = "SELECT * " +
@@ -187,7 +223,7 @@ namespace Pracownik.Database
 
 
 
-        public DataRow? GetWorker(string workerLogin) 
+        public static DataRow? GetWorker(string workerLogin) 
         {
             // Wywołani funkcji tabelarycznej wyszukajPracownika(IDpracownika)
             string query = "SELECT * " +
@@ -207,4 +243,6 @@ namespace Pracownik.Database
             }
         }
     }
+
+    
 }
