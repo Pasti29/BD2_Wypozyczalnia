@@ -75,7 +75,7 @@ namespace Pracownik.Forms
                 labelAverageConsumptionData.Text = selectedRow[6].ToString();
                 labelMaxSpeedData.Text = selectedRow[7].ToString();
                 labelEngineCapacityData.Text = selectedRow[8].ToString();
-                labelControlDateData.Text = ((DateTime)selectedRow[9]).ToString("dd-MM-yyyy");
+                labelControlDateData.Text = ((DateTime)selectedRow[9]).ToString("dd.MM.yyyy");
 
             }
             else if (listViewCars.SelectedItems.Count == 0) 

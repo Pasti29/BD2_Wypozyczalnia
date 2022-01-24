@@ -21,7 +21,7 @@ namespace Pracownik
 
         private Button? _currentPressedButton;
         private Form? _displayedForm;
-        private Boolean _isLogged = true;
+        private Boolean _isLogged = false;
 
 
 
@@ -34,7 +34,9 @@ namespace Pracownik
             InitializeComponent();
 
             // Na starcie programu będzie wybrana zakładka logowania
+            DisableButtons();
             OpenChildForm(new FormLogowanie(this), btnLogowanie);
+            
         }
 
 
@@ -58,14 +60,13 @@ namespace Pracownik
                     control.ForeColor = Color.White;
                     control.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
                     control.Enabled = true;
+                    control.Visible = true;
 
-                    // Jeśli użytkownik nie będzie zalogowany - wybrane przyciski będą nieaktywne
-                    if (((control == btnModyfikowanieKat) || (control == btnDodajUzytkownika) || (control == btnWyloguj)) && (!_isLogged))
+                    // Jeśli użytkownik nie będzie zalogowany - wybrane przyciski będą ukryte
+                    if (((control == btnModyfikowanieKat) || (control == btnDodajUzytkownika) || (control == btnWyloguj)||(control == btnHistoriaWypozyczen)) && (!_isLogged))
                     {
-                        control.Enabled = false;
+                        control.Visible = false;
                     }
-                    
-
                 }
             }
         }
@@ -142,21 +143,6 @@ namespace Pracownik
             OpenChildForm(new FormLogowanie(this), sender);
         }
 
-        private void btnKatalogSamochodow_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormKatalogSamochodow(), sender);
-        }
-
-        private void btnModyfikowanieKat_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormModyfikowanieKatalogu(), sender);
-        }
-
-        private void btnDodajUzytkownika_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormDodajUzytkownika(), sender);
-        }
-
         private void btnWyloguj_Click(object sender, EventArgs e)
         {
             // Zapisanie przycisku, z którego przeszliśmy do zakładki wyloguj 
@@ -180,6 +166,26 @@ namespace Pracownik
             {
                 ActiveButton(previousButton);
             }
+        }
+
+        private void btnKatalogSamochodow_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormKatalogSamochodow(), sender);
+        }
+
+        private void btnModyfikowanieKat_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormModyfikowanieKatalogu(), sender);
+        }
+
+        private void btnDodajUzytkownika_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDodajUzytkownika(), sender);
+        }
+
+        private void btnHistoriaWypozyczen_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormHistoriaWypozyczen(), sender);
         }
     }
 

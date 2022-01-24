@@ -30,7 +30,7 @@ namespace Pracownik.Database
             command.Parameters.AddWithValue("@image", convertedImage);
             
             // Wywołanie procedury dodajSamochod(...)
-            command.CommandText = $"EXEC dodajSamochod '{carID}', '{workerID}', '{brand}', '{model}', '{borrowed}', '{vintage}', '{averageConsumption}', '{maxSpeed}', '{engineCapacity}', '{controlDate}', @image ";
+            command.CommandText = $"EXEC dodajSamochod '{carID}', '{workerID}', '{brand}', '{model}', '{borrowed}', '{vintage}', '{averageConsumption}', '{maxSpeed}', '{engineCapacity}', '{controlDate.ToString("MM/dd/yyyy")}', @image ";
             
             // Wykonanie zapytania
             command.ExecuteNonQuery();
@@ -61,7 +61,19 @@ namespace Pracownik.Database
 
         }
 
+        public DataTable GetAllOrders()
+        {
+            //utworzenie zapytania wywołującego funkcję wyswietlHistorieZamowien
+            string query = "SELECT * " +
+                           "FROM wyswietlHistorieZamowien();";
 
+
+            SqlDataAdapter adapter = new SqlDataAdapter(query, _connection);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            return table;
+        }
 
         public void DeleteCar(string carID) 
         {
@@ -80,9 +92,9 @@ namespace Pracownik.Database
 
         public DataRow? GetCar(string carID) 
         {
-            //utworzenie zapytania zwracającego informację o samochodzie o danym id
+            //wywołanie funkcji wyszukajSamochod(IDsamochodu)
             string query = "SELECT * " +
-                           $"FROM Samochody WHERE  IDsamochodu = '{carID}';";
+                           $"FROM wyszukajSamochod('{carID}');";
 
             SqlDataAdapter adapter = new SqlDataAdapter(query, _connection);
             DataTable table = new DataTable();
