@@ -114,7 +114,7 @@ namespace Pracownik.Database
                            "FROM wyswietlHistorieZamowien();";
 
 
-            SqlDataAdapter adapter = new SqlDataAdapter(query, _connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             DataTable table = new DataTable();
             adapter.Fill(table);
 

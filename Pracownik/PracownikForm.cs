@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Pracownik.Database;
 
 namespace Pracownik
 {
@@ -35,7 +36,7 @@ namespace Pracownik
 
             // Na starcie programu będzie wybrana zakładka logowania
             DisableButtons();
-            OpenChildForm(new FormLogowanie(this), btnLogowanie);
+            OpenChildForm(new FormLogin(this), btnLogowanie);
             
         }
 
@@ -135,12 +136,12 @@ namespace Pracownik
             // gdy już wcześniej wybraliśmy daną zakładkę) to zakładki nie zmieniają swojego wyglądu i właściwości - my jednak chcemy wymusić
             // ich ponowne wygenerowanie
             _currentPressedButton = null;
-            OpenChildForm(new FormLogowanie(this), btnLogowanie);
+            OpenChildForm(new FormLogin(this), btnLogowanie);
         }
 
         private void btnLogowanie_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormLogowanie(this), sender);
+            OpenChildForm(new FormLogin(this), sender);
         }
 
         private void btnWyloguj_Click(object sender, EventArgs e)
@@ -159,8 +160,9 @@ namespace Pracownik
             {
                 // Wylogowanie
                 _isLogged = false;
+                Repository.CloseConnection();
                 // Przejście do zakładki logowania
-                OpenChildForm(new FormLogowanie(this), btnLogowanie);
+                OpenChildForm(new FormLogin(this), btnLogowanie);
             }
             else 
             {
@@ -187,6 +189,8 @@ namespace Pracownik
         {
             OpenChildForm(new FormHistoriaWypozyczen(), sender);
         }
+
+        
     }
 
      

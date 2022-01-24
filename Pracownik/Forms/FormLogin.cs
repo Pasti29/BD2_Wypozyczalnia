@@ -13,6 +13,10 @@ namespace Pracownik.Forms
         {
             this.pracownikForm = pracownikForm;
             InitializeComponent();
+            if (Repository.IsConnectionOpened())
+            {
+                IsLogged();
+            }
         }
 
         private void ButtonLogin_Click(object sender, EventArgs e)
@@ -38,13 +42,13 @@ namespace Pracownik.Forms
 
             string? role = Repository.GetCurrentUserRole();
 
-            if (role != "Klient")
+            if (role != "Pracownik")
             {
                 Repository.CloseConnection();
                 LabelConnectionStatus.Visible = true;
                 LabelConnectionStatus.ForeColor = Color.Blue;
-                LabelConnectionStatus.Text = "To jest aplikacja kliencka\n" +
-                                             "Pracownik nie może się tu zalogować";
+                LabelConnectionStatus.Text = "To jest aplikacja pracownicza\n" +
+                                             "Klient nie może się tu zalogować";
                 return;
             }
 
@@ -52,11 +56,7 @@ namespace Pracownik.Forms
             LabelConnectionStatus.ForeColor = Color.Green;
             LabelConnectionStatus.Text = "Zalogowano";
             IsLogged();
-            pracownikForm.ButtonLogin_Visible(false);
-            pracownikForm.ButtonRegister_Visible(false);
-            pracownikForm.ButtonAddOrder_Enable(true);
-            pracownikForm.ButtonOrder_Enable(true);
-            pracownikForm.ButtonLogout_Visible(true);
+            pracownikForm.Login();
         }
 
         private void IsLogged()

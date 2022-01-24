@@ -19,7 +19,6 @@ namespace Pracownik.Forms
         /// <summary>
         /// Wskaźnik na instancję klasy Repository
         /// </summary>
-        private readonly Repository _repository = new Repository();
         private readonly DataTable _carsDataTable;
 
 
@@ -28,7 +27,7 @@ namespace Pracownik.Forms
             InitializeComponent();
 
             // Zaczerpnięcie informacji o wszystkich autach z bazy danych 
-            _carsDataTable = _repository.GetCarsTable();
+            _carsDataTable = Repository.GetCarsTable();
 
             // Dodanie zdjęc do 'imageListWithCars' 
             foreach (DataRow row in _carsDataTable.Rows) 
