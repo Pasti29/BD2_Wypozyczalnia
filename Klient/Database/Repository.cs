@@ -42,10 +42,12 @@ namespace Klient.Database
 
         public static DataTable GetCarsTable()
         {
+            bool guest = false;
             if (!IsConnectionOpened())
             {
                 connection = new(Properties.Resources.GuestString);
                 connection.Open();
+                guest = true;
             }
 
             string query = "SELECT * from dbo.wyswietlSamochody()";
@@ -53,7 +55,7 @@ namespace Klient.Database
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
-            if (connection.WorkstationId.Equals("guest"))
+            if (guest)
             {
                 connection.Close();
             }
